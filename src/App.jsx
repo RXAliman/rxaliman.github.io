@@ -1,16 +1,20 @@
-import './App.css';
-import catGif from './images/cat.gif';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import HomePage from './Home'
+import NotFoundPage from './NotFound'
+
+import './index.css'
+import './App.css'
 
 const App = () => {
   return (
-    <>
-      <div className='center'>
-        <img src={catGif} draggable='false' />
-        Sorry... work in progress
-        <span className='attribution'>&copy; Rovic Aliman 2025</span>
-      </div>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <HomePage /> } />
+        <Route path="*" element={ <NotFoundPage /> } />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
