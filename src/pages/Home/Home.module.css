@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  background: linear-gradient(#00000088,#00000088), url('../../assets/images/hero-bg.webp');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero {
+  @apply w-full h-svh flex flex-col gap-3 justify-center items-center p-5;
+  @apply min-[425px]:gap-4;
+  @apply min-[768px]:gap-5;
+}
+
+.heroLogo {
+  @apply w-24 h-24;
+  @apply min-[425px]:w-26 min-[425px]:h-26;
+  @apply min-[768px]:w-36 min-[768px]:h-36;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 0s;
+}
+
+.heroLogoText {
+  @apply flex flex-col justify-center font-[ROG] text-2xl;
+  @apply min-[425px]:text-3xl;
+  @apply min-[768px]:text-4xl;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 0.1s;
+}
+
+.supporting {
+  @apply text-white text-lg text-center font-mono mb-2;
+  @apply min-[425px]:text-xl;
+  @apply min-[768px]:text-2xl;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+  animation-delay: 0.1s;
+}
+
+.socials {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+.socialIcon {
+  @apply text-white text-3xl;
+  @apply hover:scale-120 transition-all duration-300;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.socialIcon:nth-child(1) { animation-delay: 0s; }
+.socialIcon:nth-child(2) { animation-delay: 0.05s; }
+.socialIcon:nth-child(3) { animation-delay: 0.1s; }
+.socialIcon:nth-child(4) { animation-delay: 0.15s; }

@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import HomePage from './Home'
+import HomePage from './pages/Home/Home'
 import NotFoundPage from './NotFound'
 
-import './index.css'
 import './App.css'
 
 const App = () => {

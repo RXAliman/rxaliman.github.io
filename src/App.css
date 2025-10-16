@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "ROG";
+  src: url("./assets/fonts/ROGFONTS-REGULAR.woff");
+}
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}

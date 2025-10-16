@@ -1,5 +1,5 @@
-import './index.css'
-import catGif from './images/cat.gif'
+import './App.css'
+import catGif from './assets/images/cat.gif'
 
 const NotFoundPage = () => (
   <>
