@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+.tile {
+  @apply border-1 border-neutral-600 rounded-lg backdrop-blur-lg bg-neutral-700/30;
+  @apply flex gap-4 p-4;
+}
+
+.header {
+  @apply flex justify-between text-sm text-white rounded-t-lg items-center mb-2;
+}
+
+.headerTitle {
+  @apply text-left text-white text-base font-medium;
+  @apply flex gap-2 items-center;
+}
+
+.icon {
+  @apply w-6 h-6 rounded-md;
+  @apply min-[768px]:w-8 min-[768px]:h-8;
+}
+
+.content {
+  @apply text-white rounded-b-lg;
+}
