@@ -16,7 +16,7 @@ body {
 }
 
 .hero {
-  @apply w-full h-svh flex flex-col gap-3 justify-center items-center p-5;
+  @apply w-full h-svh flex flex-col gap-3 justify-center items-center;
   @apply min-[425px]:gap-4;
   @apply min-[768px]:gap-5;
 }
@@ -27,7 +27,7 @@ body {
   @apply min-[768px]:w-36 min-[768px]:h-36;
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
-  animation-delay: 0s;
+  animation-delay: 0.5s;
 }
 
 .heroLogoText {
@@ -36,16 +36,16 @@ body {
   @apply min-[768px]:text-4xl;
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
-  animation-delay: 0.1s;
+  animation-delay: 0.6s;
 }
 
 .supporting {
-  @apply text-white text-lg text-center font-mono mb-2;
+  @apply text-white text-sm text-center font-mono mb-2;
   @apply min-[425px]:text-xl;
   @apply min-[768px]:text-2xl;
   animation: fadeIn 0.5s ease-in-out forwards;
   opacity: 0;
-  animation-delay: 0.1s;
+  animation-delay: 0.6s;
 }
 
 .socials {
@@ -60,7 +60,7 @@ body {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-.socialIcon:nth-child(1) { animation-delay: 0s; }
-.socialIcon:nth-child(2) { animation-delay: 0.05s; }
-.socialIcon:nth-child(3) { animation-delay: 0.1s; }
-.socialIcon:nth-child(4) { animation-delay: 0.15s; }
+.socialIcon:nth-child(1) { animation-delay: 0.5s; }
+.socialIcon:nth-child(2) { animation-delay: 0.55s; }
+.socialIcon:nth-child(3) { animation-delay: 0.6s; }
+.socialIcon:nth-child(4) { animation-delay: 0.65s; }

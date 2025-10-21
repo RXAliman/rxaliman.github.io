@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.section {
+  @apply flex flex-col gap-1;
+}
+
+.sectionTitle {
+  @apply text-white;
+}
+
+.sectionContent {
+  @apply border-1 border-neutral-600 rounded-md p-4 flex justify-center gap-4 text-neutral-300;
+}
