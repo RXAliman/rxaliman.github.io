@@ -1,8 +1,9 @@
+import { data } from 'react-router-dom';
 import styles from './NotificationTile.module.css';
 
-const NotificationTile = ({ title, icon, sinceWhen, children }) => {
+const NotificationTile = ({ title, icon, sinceWhen, children, dataAos, dataAosDuration }) => {
   return (
-    <div className={styles.tile}>
+    <div className={styles.tile} data-aos={dataAos} data-aos-duration={dataAosDuration}>
       <div className='w-full'>
         <div className={styles.header}>
           <div className={styles.headerTitle}>

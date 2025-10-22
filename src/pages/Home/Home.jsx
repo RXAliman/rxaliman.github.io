@@ -1,3 +1,9 @@
+import { useEffect } from 'react';
+
+import AOS from 'aos';
+
+import 'aos/dist/aos.css';
+
 import styles from './Home.module.css';
 
 import Logo from '../../assets/images/logo.svg';
@@ -14,6 +20,8 @@ import VueIcon from '../../assets/images/tech/vue.webp';
 import BootstrapIcon from '../../assets/images/tech/bootstrap.webp';
 import TailwindIcon from '../../assets/images/tech/tailwind.webp';
 import ViteIcon from '../../assets/images/tech/vite.webp';
+import EjsIcon from '../../assets/images/tech/ejs.webp';
+import RazorIcon from '../../assets/images/tech/razor.webp';
 import ExpressIcon from '../../assets/images/tech/express.webp';
 import AspDotNetIcon from '../../assets/images/tech/aspdotnet.webp';
 import NodeIcon from '../../assets/images/tech/node.webp';
@@ -33,6 +41,7 @@ import GitHubIcon from '../../assets/images/tech/github.webp';
 import GitLabIcon from '../../assets/images/tech/gitlab.webp';
 import VercelIcon from '../../assets/images/tech/vercel.webp';
 import SmarterASPDotNetIcon from '../../assets/images/tech/smarteraspdotnet.webp';
+import DbeaverIcon from '../../assets/images/tech/dbeaver.webp';
 import FirebaseIcon from '../../assets/images/tech/firebase.webp';
 import FirebaseStudioIcon from '../../assets/images/tech/firebasestudio.webp';
 import VSCodeIcon from '../../assets/images/tech/vscode.webp';
@@ -49,6 +58,13 @@ import WindowTileSection from '../../components/WindowTileSection/WindowTileSect
 import AppIcon from '../../components/AppIcon/AppIcon';
 
 const HomePage = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+   });
+  }, []);
+
   return (
     <>
       <div className={styles.hero}>
@@ -72,22 +88,22 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className='flex flex-col gap-6 p-6'>
-        <NotificationTile title="Rovic sent a message." sinceWhen="Oct. 19, 2025" icon={MessageIcon} >
+      <div className='flex flex-col gap-3 px-3 min-[425px]:px-6 min-[425px]:gap-6'>
+        <NotificationTile title="Rovic sent a message." sinceWhen="Oct. 19, 2025" icon={MessageIcon} dataAos="fade-up" dataAosDuration="200" >
           Hello there! This page is a work in progress. More updates and content will be added soon. Stay tuned!
         </NotificationTile>
-        <div className='flex max-[768px]:flex-col gap-6 basis-0'>
-          <WindowTile title='ID Picture' className='flex justify-center p-4'>
+        <div className='flex max-[768px]:flex-col gap-3 min-[425px]:gap-6 basis-0'>
+          <WindowTile title='ID Picture.jpg' className='flex justify-center p-4' dataAos="fade-up" dataAosDuration="200">
             <img src={IdPic} className='w-50 max-h-min min-[768px]:shrink-0' />
           </WindowTile>
-          <WindowTile title="About Me" className="flex items-center p-4">
+          <WindowTile title="About Me" className="flex items-center p-4" dataAos="fade-up" dataAosDuration="200">
             I am an aspiring software engineer with a passion for creating innovative solutions and a strong foundation in computer science. Skilled in various programming languages and frameworks, I am eager to contribute to impactful projects and continuously expand my knowledge in the tech industry.
           </WindowTile>
         </div>
-        <WindowTile title="Projects" className="p-4 text-white">
+        <WindowTile title="Projects" className="p-4 text-white" dataAos="fade-up" dataAosDuration="200">
           Projects will be here soon...
         </WindowTile>
-        <WindowTile title="Technology Stacks" className="flex flex-wrap gap-5 p-4">
+        <WindowTile title="Technology Stacks" className="flex flex-wrap gap-5 p-4" dataAos="fade-up" dataAosDuration="200">
           <WindowTileSection title="Web Development">
             <div className='flex flex-wrap justify-center gap-4'>
               <AppIcon icon={HtmlIcon} label="HTML" />
@@ -95,6 +111,8 @@ const HomePage = () => {
               <AppIcon icon={JavascriptIcon} label="JavaScript" />
               <AppIcon icon={ReactIcon} label="ReactJS" />
               <AppIcon icon={VueIcon} label="VueJS" />
+              <AppIcon icon={EjsIcon} label="EJS" />
+              <AppIcon icon={RazorIcon} label="ASP.NET Razor" />
               <AppIcon icon={BootstrapIcon} label="Bootstrap" />
               <AppIcon icon={TailwindIcon} label="Tailwind" />
               <AppIcon icon={ViteIcon} label="Vite" />
@@ -139,6 +157,7 @@ const HomePage = () => {
               <AppIcon icon={GitLabIcon} label="GitLab" />
               <AppIcon icon={VercelIcon} label="Vercel" />
               <AppIcon icon={SmarterASPDotNetIcon} label="SmarterASP.NET" />
+              <AppIcon icon={DbeaverIcon} label="DBeaver" />
               <AppIcon icon={FirebaseIcon} label="Firebase" />
               <AppIcon icon={FirebaseStudioIcon} label="Firebase Studio" />
               <AppIcon icon={VSCodeIcon} label="VS Code" />
