@@ -1,8 +1,12 @@
-import './App.css'
-import catGif from './assets/images/cat.gif'
+import catGif from '../../assets/images/cat.gif'
 
 const NotFoundPage = () => (
   <>
+    <style>{`
+      body {
+        background: white;
+      }
+    `}</style>
     <title>404 - Rovic Aliman</title>
     <div className='h-screen flex flex-col justify-center items-center gap-2 p-3'>
       <img src={catGif} width="100px" draggable='false' />
