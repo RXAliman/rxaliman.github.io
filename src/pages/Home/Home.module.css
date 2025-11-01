@@ -58,9 +58,5 @@ body {
   @apply hover:scale-120 transition-all duration-300;
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: calc(0.45s + (var(--i) * 0.05s));
 }
-
-.socialIcon:nth-child(1) { animation-delay: 0.5s; }
-.socialIcon:nth-child(2) { animation-delay: 0.55s; }
-.socialIcon:nth-child(3) { animation-delay: 0.6s; }
-.socialIcon:nth-child(4) { animation-delay: 0.65s; }

@@ -47,7 +47,7 @@ import FirebaseStudioIcon from '../../assets/images/tech/firebasestudio.webp';
 import VSCodeIcon from '../../assets/images/tech/vscode.webp';
 import VSCommunityIcon from '../../assets/images/tech/vscommunity.webp';
 
-import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 
@@ -81,10 +81,11 @@ const HomePage = () => {
         </div>
         <div className={styles.socials + ' flex flex-col items-center text-white gap-4'}>
           <div className="flex gap-4">
-            <a href="mailto:rovicxavier150@gmail.com" target="_blank" className={styles.socialIcon}><SiGmail /></a>
-            <a href="https://www.github.com/rxaliman/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><FaGithub /></a>
-            <a href="https://www.facebook.com/rovicxavier" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><FaFacebook /></a>
-            <a href="https://www.linkedin.com/in/rovic-xavier-aliman-2887ba312/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}><FaLinkedin /></a>
+            <a href="mailto:rovicxavier150@gmail.com" target="_blank" style={{ '--i': 1 }} className={styles.socialIcon}><SiGmail /></a>
+            <a href="https://www.linkedin.com/in/rovic-xavier-aliman-2887ba312/" target="_blank" rel="noopener noreferrer" style={{ '--i': 2 }} className={styles.socialIcon}><FaLinkedin /></a>
+            <a href="https://www.github.com/rxaliman/" target="_blank" rel="noopener noreferrer" style={{ '--i': 3 }} className={styles.socialIcon}><FaGithub /></a>
+            <a href="https://www.facebook.com/rovicxavier" target="_blank" rel="noopener noreferrer" style={{ '--i': 4 }} className={styles.socialIcon}><FaFacebook /></a>
+            <a href="https://www.instagram.com/rxaliman/" target="_blank" rel="noopener noreferrer" style={{ '--i': 5 }} className={styles.socialIcon}><FaInstagram /></a>
           </div>
         </div>
       </div>
