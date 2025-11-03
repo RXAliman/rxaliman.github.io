@@ -90,21 +90,21 @@ const HomePage = () => {
         </div>
       </div>
       <div className='flex flex-col gap-3 px-3 min-[425px]:px-6 min-[425px]:gap-6'>
-        <NotificationTile title="Rovic sent a message." sinceWhen="Oct. 19, 2025" icon={MessageIcon} dataAos="fade-up" dataAosDuration="200" >
+        <NotificationTile title="Rovic sent a message." sinceWhen="Oct. 19, 2025" icon={MessageIcon} dataAos="fade-up" dataAosDuration="400" >
           Hello there! This page is a work in progress. More updates and content will be added soon. Stay tuned!
         </NotificationTile>
         <div className='flex max-[768px]:flex-col gap-3 min-[425px]:gap-6 basis-0'>
-          <WindowTile title='ID Picture.jpg' className='flex justify-center p-4' dataAos="fade-up" dataAosDuration="200">
+          <WindowTile title='ID Picture.jpg' className='flex justify-center p-4' dataAos="fade-up" dataAosDuration="400">
             <img src={IdPic} className='w-50 max-h-min min-[768px]:shrink-0' />
           </WindowTile>
-          <WindowTile title="About Me" className="flex items-center p-4" dataAos="fade-up" dataAosDuration="200">
+          <WindowTile title="About Me" className="flex items-center p-4" dataAos="fade-up" dataAosDuration="400">
             I am an aspiring software engineer with a passion for creating innovative solutions and a strong foundation in computer science. Skilled in various programming languages and frameworks, I am eager to contribute to impactful projects and continuously expand my knowledge in the tech industry.
           </WindowTile>
         </div>
-        <WindowTile title="Projects" className="p-4 text-white" dataAos="fade-up" dataAosDuration="200">
+        <WindowTile title="Projects" className="p-4 text-white" dataAos="fade-up" dataAosDuration="400">
           Projects will be here soon...
         </WindowTile>
-        <WindowTile title="Technology Stacks" className="flex flex-wrap gap-5 p-4" dataAos="fade-up" dataAosDuration="200">
+        <WindowTile title="Technology Stacks" className="flex flex-wrap gap-5 p-4" dataAos="fade-up" dataAosDuration="400">
           <WindowTileSection title="Web Development">
             <div className='flex flex-wrap justify-center gap-4'>
               <AppIcon icon={HtmlIcon} label="HTML" />
