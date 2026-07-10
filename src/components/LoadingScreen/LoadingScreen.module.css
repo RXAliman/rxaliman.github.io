@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+.overlay {
+  @apply bg-neutral-900;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+}
+
+.overlay.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Logo container */
+.logoContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.logoOutline,
+.logoSolid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoOutline {
+  opacity: 1;
+}
+
+.logoOutline.hidden {
+  opacity: 0;
+}
+
+.logoSolid {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+
+.logoSolid.revealed {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+/* Phase 3: logo floats up and fades */
+.logoContainer.exit {
+  animation: floatUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+/* Loading bar */
+.loader {
+  --color-1: rgba(255, 255, 255, 0.2);
+  --color-2: #fff;
+  --size: 0.5px;
+  width: calc(160 * var(--size));
+  height: calc(8 * var(--size));
+  border-radius: calc(4 * var(--size));
+  display: block;
+  margin: calc(20 * var(--size)) auto 0;
+  position: relative;
+  background: var(--color-1);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(70 * var(--size));
+  border-radius: inherit;
+  background: var(--color-2);
+  box-sizing: border-box;
+  animation: slide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(calc(-70 * var(--size)));
+  }
+
+  100% {
+    transform: translateX(calc(160 * var(--size)));
+  }
+}

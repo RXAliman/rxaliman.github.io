@@ -10,6 +10,10 @@
   list-style: none;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   @apply scroll-smooth;
   margin: 0;
@@ -18,6 +22,7 @@ body {
 a {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }

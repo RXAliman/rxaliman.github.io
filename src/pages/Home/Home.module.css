@@ -1,76 +1,23 @@
 @import "tailwindcss";
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+.homePage {
+  @apply bg-neutral-900;
+  min-height: 100vh;
 }
 
-body {
-  @apply bg-neutral-800;
-}
-
-.hero {
-  background: linear-gradient(#00000088, #00000088), url('../../assets/images/hero-bg.webp');
-  background-size: cover;
-  @apply w-full h-svh flex flex-col gap-3 justify-center items-center;
-  @apply min-[425px]:gap-4;
-  @apply min-[768px]:gap-5;
-}
-
-.heroLogo {
-  @apply w-24 h-24;
-  @apply min-[425px]:w-26 min-[425px]:h-26;
-  @apply min-[768px]:w-36 min-[768px]:h-36;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
-  animation-delay: 0.5s;
-}
-
-.heroLogoText {
-  @apply flex flex-col justify-center font-[ROG] text-2xl;
-  @apply min-[425px]:text-3xl;
-  @apply min-[768px]:text-4xl;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
-  animation-delay: 0.6s;
-}
-
-.socials {
-  animation: fadeIn 0.5s ease-in-out forwards;
-  opacity: 0;
-}
-
-.socialIcon {
-  @apply text-white text-3xl;
-  @apply hover:scale-120 transition-all duration-300;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
-  animation-delay: calc(0.45s + (var(--i) * 0.05s));
-}
-
-.linksBtn {
-  @apply font-mono text-white text-sm tracking-widest uppercase;
-  @apply px-8 py-2.5 rounded-full;
-  @apply min-[425px]:text-sm;
-  @apply min-[768px]:text-base;
-  border: 2px solid white;
-  background: transparent;
-  cursor: pointer;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
-  animation-delay: 0.7s;
-  transition: all 0.3s ease;
-  text-decoration: none !important;
-  letter-spacing: 0.2em;
-}
-
-.linksBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.05);
-  text-decoration: none !important;
-}
+/* .homePage::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: #0f2329;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(42, 66, 69, 0.2) 29px, rgba(42, 66, 69, 0.2) 30px, transparent 30px, transparent 59px, rgba(42, 66, 69, 0.2) 59px, rgba(42, 66, 69, 0.2) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(42, 66, 69, 0.2) 29px, rgba(42, 66, 69, 0.2) 30px, transparent 30px, transparent 59px, rgba(42, 66, 69, 0.2) 59px, rgba(42, 66, 69, 0.2) 60px),
+    radial-gradient(circle at 30px 30px, rgba(42, 66, 69, 0.2) 2.4px, transparent 2.9px),
+    radial-gradient(circle at 0px 0px, rgba(42, 66, 69, 0.2) 1.8px, transparent 2.3px),
+    radial-gradient(circle at 60px 0px, rgba(42, 66, 69, 0.2) 1.8px, transparent 2.3px),
+    radial-gradient(circle at 0px 60px, rgba(42, 66, 69, 0.2) 1.8px, transparent 2.3px),
+    radial-gradient(circle at 60px 60px, rgba(42, 66, 69, 0.2) 1.8px, transparent 2.3px);
+  background-size: 60px 60px;
+} */

@@ -3,17 +3,28 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import HomePage from './pages/Home/Home'
 import LinksPage from './pages/Links/Links'
 import NotFoundPage from './pages/NotFound/NotFound'
+import PageWrapper from './components/PageWrapper/PageWrapper'
+
+import useSmoothScroll from './hooks/useSmoothScroll'
 
 import './App.css'
 
 const App = () => {
+  useSmoothScroll();
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/links" element={<LinksPage />} />
         <Route path="/404" element={<NotFoundPage />} />
-        <Route path="*" element={<Navigate to="/404" replace />} />
+        <Route path="*" element={
+          <PageWrapper>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/links" element={<LinksPage />} />
+              <Route path="*" element={<Navigate to="/404" replace />} />
+            </Routes>
+          </PageWrapper>
+        } />
       </Routes>
     </BrowserRouter>
   );
