@@ -1,11 +1,16 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
+import basicSsl from '@vitejs/plugin-basic-ssl'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    basicSsl(),
   ],
+  server: {
+    host: true, // expose to LAN so your phone can access it
+  },
 })

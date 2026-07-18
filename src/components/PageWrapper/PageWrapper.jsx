@@ -7,10 +7,9 @@ const PageWrapper = ({ children }) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Reset loading state on navigation
+  // Reset scroll position on navigation
   useEffect(() => {
-    setShowOverlay(true);
-    setIsLoaded(false);
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   // Detect when assets are ready
@@ -41,25 +40,40 @@ const PageWrapper = ({ children }) => {
       checkReady();
     });
 
-    // Safety timeout — never stay stuck longer than 5 seconds
+    // Safety timeout — never stay stuck longer than 4 seconds
     const safetyTimeout = setTimeout(() => {
       if (!cancelled) setIsLoaded(true);
-    }, 5000);
+    }, 6000);
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(raf);
       clearTimeout(safetyTimeout);
     };
-  }, [isLoaded, location.pathname]);
+  }, [isLoaded]);
 
   const handleFinished = useCallback(() => {
     setShowOverlay(false);
   }, []);
 
+  // Hide scrollbar when overlay is visible
+  useEffect(() => {
+    if (showOverlay) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showOverlay]);
+
   return (
     <>
-      {children}
+      <div key={location.pathname} className="pageFadeTransition">
+        {children}
+      </div>
       {showOverlay && (
         <LoadingScreen isLoaded={isLoaded} onFinished={handleFinished} />
       )}

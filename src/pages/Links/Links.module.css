@@ -1,6 +1,549 @@
 @import "tailwindcss";
 
+/* ===== Page ===== */
 .linksPage {
-  @apply bg-neutral-900;
+  @apply bg-gray-950;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 32px;
+  height: min-content;
+}
+
+/* ===== Top Actions ===== */
+.topActions {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.topActionBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.topActionBtn:nth-child(1) {
+  margin-right: auto;
+}
+
+.topActionBtn:hover {
+  border-color: #14b8a6;
+  color: #14b8a6;
+  background: rgba(20, 184, 166, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ===== Profile Section ===== */
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-top: 12px;
+}
+
+.profilePicWrapper {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 12px;
+}
+
+.profilePic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileName {
+  @apply text-white;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.profileTitle {
+  color: #14b8a6;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.profileLocation {
+  @apply text-gray-400;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  margin: 2px 0 0;
+}
+
+.locationIcon {
+  font-size: 0.95rem;
+}
+
+/* ===== Social Icons ===== */
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.socialIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.socialIcon:hover {
+  border-color: #14b8a6;
+  color: #14b8a6;
+  background: rgba(20, 184, 166, 0.08);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* ===== Link Cards ===== */
+.linkCards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.linkCard:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.linkCardContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.linkCardTitle {
+  @apply text-white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.linkCardDesc {
+  @apply text-gray-400;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.linkCardArrow {
+  @apply text-gray-500;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: color 0.25s ease;
+}
+
+.linkCard:hover .linkCardArrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== Get in Touch ===== */
+.getInTouch {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.getInTouchIconWrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.getInTouchIcon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.getInTouchTitle {
+  @apply text-white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.getInTouchDesc {
+  @apply text-gray-400;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.sendEmailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.sendEmailBtn:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.sendIcon {
+  font-size: 0.9rem;
+}
+
+.emailPill {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 8px 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.emailPill:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ===== QR Bottom Drawer ===== */
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawerBackdropOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  z-index: 100;
+  background: #1a1a1a;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 14px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  max-height: 85vh;
+  width: calc(100% - 40px);
+  max-width: 420px;
+  overflow-y: auto;
+}
+
+.drawerOpen {
+  transform: translate(-50%, 0);
+}
+
+.drawerHandle {
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.drawerTitle {
+  @apply text-white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.drawerDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+/* QR Code area */
+.qrWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.qrImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: contain;
+}
+
+/* Page URL */
+.pageUrlLabel {
+  @apply text-gray-500;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin-bottom: 8px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.pageUrlRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.pageUrlText {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copyBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.copyBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* ===== Snackbar ===== */
+.snackbar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 12px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.snackbarVisible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+/* ===== Light Mode Overrides ===== */
+:global(.lightMode) .linksPage {
+  background-color: #f8fafc !important;
+}
+
+:global(.lightMode) .container {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+:global(.lightMode) .profileName,
+:global(.lightMode) .getInTouchTitle,
+:global(.lightMode) .drawerTitle {
+  color: #111827 !important;
+}
+
+:global(.lightMode) .profileLocation,
+:global(.lightMode) .linkCardDesc,
+:global(.lightMode) .getInTouchDesc,
+:global(.lightMode) .pageUrlLabel {
+  color: #4b5563 !important;
+}
+
+:global(.lightMode) .topActionBtn,
+:global(.lightMode) .socialIcon,
+:global(.lightMode) .copyBtn {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+:global(.lightMode) .topActionBtn:hover,
+:global(.lightMode) .socialIcon:hover,
+:global(.lightMode) .copyBtn:hover {
+  border-color: #14b8a6 !important;
+  color: #14b8a6 !important;
+  background: rgba(20, 184, 166, 0.08) !important;
+}
+
+:global(.lightMode) .linkCard {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+:global(.lightMode) .linkCard:hover {
+  background: rgba(0, 0, 0, 0.07) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+:global(.lightMode) .linkCardTitle {
+  color: #111827 !important;
+}
+
+:global(.lightMode) .linkCardArrow {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+:global(.lightMode) .linkCard:hover .linkCardArrow {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+:global(.lightMode) .getInTouch {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+:global(.lightMode) .emailPill {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+:global(.lightMode) .emailPill:hover {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+:global(.lightMode) .sendEmailBtn {
+  background: #111827 !important;
+  color: white !important;
+}
+
+:global(.lightMode) .sendEmailBtn:hover {
+  background: #374151 !important;
+}
+
+:global(.lightMode) .drawer {
+  background: #f8fafc !important;
+}
+
+:global(.lightMode) .drawerHandle {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+:global(.lightMode) .drawerDivider {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+:global(.lightMode) .pageUrlText {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: rgba(0, 0, 0, 0.7) !important;
 }

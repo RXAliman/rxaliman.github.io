@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "ROG";
-  src: url("./assets/fonts/ROGFONTS-REGULAR.woff");
+  font-family: "Google Sans";
+  src: url("./assets/fonts/GoogleSans-VariableFont_GRAD,opsz,wght.woff");
+  font-display: swap;
 }
 
 * {
@@ -15,8 +16,14 @@ html {
 }
 
 body {
-  @apply scroll-smooth;
+  @apply scroll-smooth bg-gray-950;
   margin: 0;
+  font-family: "Google Sans";
+  transition: background-color 0.5s ease;
+}
+
+body.lightMode {
+  background-color: #f8fafc;
 }
 
 a {
@@ -25,4 +32,18 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* ===== Page Transition ===== */
+.pageFadeTransition {
+  animation: pageFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

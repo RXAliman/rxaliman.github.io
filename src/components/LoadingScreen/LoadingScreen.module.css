@@ -1,7 +1,25 @@
 @import "tailwindcss";
 
+/* ── Theme tokens ─────────────────────────────── */
+/* Dark mode (default – current look) */
 .overlay {
-  @apply bg-neutral-900;
+  --loading-bg: var(--color-gray-950);
+  --loading-logo-filter: none;
+  --loader-track: rgba(255, 255, 255, 0.2);
+  --loader-bar: #fff;
+}
+
+/* Light mode overrides */
+:global(.lightMode) .overlay {
+  --loading-bg: #f8fafc;
+  --loading-logo-filter: brightness(0) saturate(100%) opacity(0.7);
+  --loader-track: rgba(0, 0, 0, 0.12);
+  --loader-bar: #404040;
+}
+
+/* ── Overlay ──────────────────────────────────── */
+.overlay {
+  background: var(--loading-bg);
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -17,11 +35,11 @@
   pointer-events: none;
 }
 
-/* Logo container */
+/* ── Logo container ───────────────────────────── */
 .logoContainer {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
 }
 
 .logoOutline,
@@ -30,6 +48,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
+  filter: var(--loading-logo-filter);
   transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -51,7 +70,7 @@
   clip-path: inset(0 0 0 0);
 }
 
-/* Phase 3: logo floats up and fades */
+/* ── Phase 3: logo floats up and fades ────────── */
 .logoContainer.exit {
   animation: floatUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -68,10 +87,10 @@
   }
 }
 
-/* Loading bar */
+/* ── Loading bar ──────────────────────────────── */
 .loader {
-  --color-1: rgba(255, 255, 255, 0.2);
-  --color-2: #fff;
+  --color-1: var(--loader-track);
+  --color-2: var(--loader-bar);
   --size: 0.5px;
   width: calc(160 * var(--size));
   height: calc(8 * var(--size));

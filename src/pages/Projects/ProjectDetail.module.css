@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+/* ===== Page Layout ===== */
+.projectDetailPage {
+  @apply bg-gray-950 gap-[14px] md:gap-[20px];
+  min-height: 100vh;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 20px;
+}
+
+/* ===== Theme Toggle ===== */
+.themeToggleBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 50;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.themeToggleBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* ===== Text Buttons ===== */
+.textButton {
+  @apply text-gray-400;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  transition: color 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+
+.textButton:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== Top Hero Image ===== */
+.topImageCard {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0c1e24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.topImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Main Article Container ===== */
+.sectionContainer {
+  @apply p-4 md:p-5 lg:p-[28px];
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.headerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectTitle {
+  @apply text-white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.projectTag {
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: #0d9488;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* ===== Status Badges ===== */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.statusBadgeDeployed {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.statusBadgeDeployed:hover,
+.statusBadgeDormant:hover,
+.statusBadgeOngoing:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+.statusBadgeOngoing {
+  background: #d97706;
+  color: #ffffff;
+  cursor: default;
+}
+
+.statusBadgeDormant {
+  background: #52525b;
+  color: #ffffff;
+}
+
+/* ===== Article Body ===== */
+.articleBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.sectionHeading {
+  @apply text-white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.paragraph {
+  @apply text-gray-400;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.featureItem {
+  @apply text-gray-400;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.featureBullet {
+  color: #0d9488;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.bottomNav {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+/* ===== Footer ===== */
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+  margin-top: 36px;
+}
+
+.footerLogo {
+  width: 24px;
+}
+
+.footerLink {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.25s ease;
+}
+
+.footerLink:hover {
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 24px;
+  }
+
+  .footerLogo {
+    display: none;
+  }
+}
+
+/* ===== Light Mode Overrides ===== */
+:global(.lightMode) .projectDetailPage {
+  background-color: #f8fafc !important;
+}
+
+:global(.lightMode) .themeToggleBtn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #111827 !important;
+}
+
+:global(.lightMode) .themeToggleBtn:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+:global(.lightMode) .textButton {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+:global(.lightMode) .textButton:hover {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+:global(.lightMode) .sectionContainer {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+:global(.lightMode) .projectTitle,
+:global(.lightMode) .sectionHeading {
+  color: #111827 !important;
+}
+
+:global(.lightMode) .paragraph,
+:global(.lightMode) .featureItem {
+  color: #4b5563 !important;
+}
+
+
+:global(.lightMode) .footer {
+  color: rgba(0, 0, 0, 0.45) !important;
+}
+
+:global(.lightMode) .footerLogo {
+  filter: invert(1) !important;
+}
+
+:global(.lightMode) .footerLink:hover {
+  color: #111827;
+}
