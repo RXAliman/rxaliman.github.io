@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ThemeContext } from '../../App';
 import { PROJECTS_DATA } from './projectsData';
 import styles from './ProjectDetail.module.css';
-import logo from '../../assets/images/logo.svg';
+import Footer from '../../components/Footer/Footer';
 
 import {
   HiOutlineExternalLink,
@@ -13,74 +13,10 @@ import {
   HiCheck
 } from "react-icons/hi";
 
-const getTimeAgo = (dateString) => {
-  if (!dateString) return '';
-  const date = new Date(dateString);
-  const now = new Date();
-  const seconds = Math.floor((now - date) / 1000);
-
-  let interval = seconds / 31536000;
-  if (interval >= 1) return Math.floor(interval) + " years ago";
-  interval = seconds / 2592000;
-  if (interval >= 1) return Math.floor(interval) + " months ago";
-  interval = seconds / 86400;
-  if (interval >= 1) return Math.floor(interval) + " days ago";
-  interval = seconds / 3600;
-  if (interval >= 1) return Math.floor(interval) + " hours ago";
-  interval = seconds / 60;
-  if (interval >= 1) return Math.floor(interval) + " minutes ago";
-  return Math.floor(seconds) + " seconds ago";
-};
-
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = PROJECTS_DATA[id];
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);
-
-  const [lastUpdated, setLastUpdated] = useState('Recently');
-  const [commitUrl, setCommitUrl] = useState('https://github.com/RXAliman/rxaliman.github.io/commits/gh-pages');
-
-  useEffect(() => {
-    let isMounted = true;
-    const repoOwner = 'RXAliman';
-    const repoName = 'rxaliman.github.io';
-
-    const fetchBranchCommit = (branch) => {
-      return fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/commits?sha=${branch}&per_page=1`)
-        .then(res => {
-          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-          return res.json();
-        });
-    };
-
-    fetchBranchCommit('gh-pages')
-      .then(data => {
-        if (!isMounted) return;
-        if (Array.isArray(data) && data.length > 0) {
-          const commitDate = data[0].commit.committer.date;
-          setLastUpdated(getTimeAgo(commitDate));
-          setCommitUrl(`https://github.com/${repoOwner}/${repoName}/commits/gh-pages`);
-        }
-      })
-      .catch(() => {
-        fetchBranchCommit('main')
-          .then(data => {
-            if (!isMounted) return;
-            if (Array.isArray(data) && data.length > 0) {
-              const commitDate = data[0].commit.committer.date;
-              setLastUpdated(getTimeAgo(commitDate));
-              setCommitUrl(`https://github.com/${repoOwner}/${repoName}/commits/main`);
-            }
-          })
-          .catch(err => {
-            console.error('Error fetching commit date:', err);
-          });
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   if (!project) {
     return <Navigate to="/404" replace />;
@@ -206,21 +142,7 @@ const ProjectDetail = () => {
           </section>
 
           {/* Footer */}
-          <footer className={styles.footer}>
-            <span>Rovic Aliman © 2026</span>
-            <img src={logo} className={styles.footerLogo} draggable="false" alt="Logo" />
-            <span>
-              Last updated{' '}
-              <a
-                href={commitUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerLink}
-              >
-                {lastUpdated}
-              </a>
-            </span>
-          </footer>
+          <Footer />
         </div>
       </div>
     </>

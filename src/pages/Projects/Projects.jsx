@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../App';
 import styles from './Projects.module.css';
@@ -7,7 +7,7 @@ import styles from './Projects.module.css';
 import iskolinicPic from '../../assets/images/iskolinic.webp';
 import oatsPic from '../../assets/images/oats.webp';
 import scrunchPic from '../../assets/images/scrunch.webp';
-import logo from '../../assets/images/logo.svg';
+import Footer from '../../components/Footer/Footer';
 
 // Icons
 import { HiOutlineExternalLink, HiOutlineSun, HiOutlineMoon, HiArrowLeft } from "react-icons/hi";
@@ -87,56 +87,8 @@ const OTHER_PROJECTS = [
   },
 ];
 
-const getTimeAgo = (dateString) => {
-  if (!dateString) return '';
-  const date = new Date(dateString);
-  const now = new Date();
-  const seconds = Math.floor((now - date) / 1000);
-
-  let interval = seconds / 31536000;
-  if (interval >= 1) return Math.floor(interval) + " years ago";
-  interval = seconds / 2592000;
-  if (interval >= 1) return Math.floor(interval) + " months ago";
-  interval = seconds / 86400;
-  if (interval >= 1) return Math.floor(interval) + " days ago";
-  interval = seconds / 3600;
-  if (interval >= 1) return Math.floor(interval) + " hours ago";
-  interval = seconds / 60;
-  if (interval >= 1) return Math.floor(interval) + " minutes ago";
-  return "just now";
-};
-
 export default function ProjectsPage() {
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);
-  const [lastUpdated, setLastUpdated] = useState('recently');
-  const [commitUrl, setCommitUrl] = useState('https://github.com/RXAliman/rxaliman.github.io/commits/gh-pages');
-
-  useEffect(() => {
-    const fetchCommit = async () => {
-      try {
-        let res = await fetch('https://api.github.com/repos/RXAliman/rxaliman.github.io/commits?sha=gh-pages&per_page=1');
-        let branch = 'gh-pages';
-
-        if (!res.ok) {
-          res = await fetch('https://api.github.com/repos/RXAliman/rxaliman.github.io/commits?sha=main&per_page=1');
-          branch = 'main';
-        }
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.length > 0) {
-            setLastUpdated(getTimeAgo(data[0].commit.author.date));
-            setCommitUrl(`https://github.com/RXAliman/rxaliman.github.io/commits/${branch}`);
-          }
-        } else {
-          setLastUpdated('recently');
-        }
-      } catch (err) {
-        setLastUpdated('recently');
-      }
-    };
-    fetchCommit();
-  }, []);
 
   return (
     <>
@@ -223,21 +175,7 @@ export default function ProjectsPage() {
           </section>
 
           {/* ===== Footer ===== */}
-          <footer className={styles.footer}>
-            <span>Rovic Aliman © 2026</span>
-            <img src={logo} className={styles.footerLogo} draggable="false" alt="Logo" />
-            <span>
-              Last updated{' '}
-              <a
-                href={commitUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerLink}
-              >
-                {lastUpdated}
-              </a>
-            </span>
-          </footer>
+          <Footer />
         </div>
       </div>
     </>

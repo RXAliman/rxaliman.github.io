@@ -12,7 +12,7 @@ import olopscLogo from '../../assets/images/olopsc.webp';
 import tanglawLogo from '../../assets/images/tanglaw.webp';
 import jpcsOcsLogo from '../../assets/images/jpcs-ocs.webp';
 import ocsLogo from '../../assets/images/ocs.webp';
-import logo from '../../assets/images/logo.svg';
+import Footer from '../../components/Footer/Footer';
 import { FaGithub, FaLinkedinIn, FaFacebookF, FaLink } from "react-icons/fa";
 import { HiOutlineExternalLink, HiChevronRight, HiChevronUp, HiCheck, HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 
@@ -26,8 +26,8 @@ const SOCIAL_LINKS = [
 ];
 
 const SUBTITLE_PHRASES = [
-  "Available for Work",
   "Former Student Leader",
+  "Available for Work",
   "Aspiring Software Engineer",
 ];
 
@@ -102,26 +102,6 @@ const PROJECTS = [
   },
 ];
 
-// ——— Helpers ———
-const getTimeAgo = (dateString) => {
-  if (!dateString) return '';
-  const date = new Date(dateString);
-  const now = new Date();
-  const seconds = Math.floor((now - date) / 1000);
-
-  let interval = seconds / 31536000;
-  if (interval >= 1) return Math.floor(interval) + " years ago";
-  interval = seconds / 2592000;
-  if (interval >= 1) return Math.floor(interval) + " months ago";
-  interval = seconds / 86400;
-  if (interval >= 1) return Math.floor(interval) + " days ago";
-  interval = seconds / 3600;
-  if (interval >= 1) return Math.floor(interval) + " hours ago";
-  interval = seconds / 60;
-  if (interval >= 1) return Math.floor(interval) + " minutes ago";
-  return "just now";
-};
-
 // ——— Page Component ———
 export default function HomePage() {
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);
@@ -132,35 +112,6 @@ export default function HomePage() {
   const [expandedItems, setExpandedItems] = useState({});
   const [skillsHeight, setSkillsHeight] = useState('auto');
   const skillsRef = useRef(null);
-  const [lastUpdated, setLastUpdated] = useState('recently');
-  const [commitUrl, setCommitUrl] = useState('https://github.com/RXAliman/rxaliman.github.io/commits/gh-pages');
-
-  useEffect(() => {
-    const fetchCommit = async () => {
-      try {
-        let res = await fetch('https://api.github.com/repos/RXAliman/rxaliman.github.io/commits?sha=gh-pages&per_page=1');
-        let branch = 'gh-pages';
-
-        if (!res.ok) {
-          res = await fetch('https://api.github.com/repos/RXAliman/rxaliman.github.io/commits?sha=main&per_page=1');
-          branch = 'main';
-        }
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.length > 0) {
-            setLastUpdated(getTimeAgo(data[0].commit.author.date));
-            setCommitUrl(`https://github.com/RXAliman/rxaliman.github.io/commits/${branch}`);
-          }
-        } else {
-          setLastUpdated('recently');
-        }
-      } catch (err) {
-        setLastUpdated('recently');
-      }
-    };
-    fetchCommit();
-  }, []);
 
   // Subtitle cycling animation
   useEffect(() => {
@@ -535,21 +486,7 @@ export default function HomePage() {
           </section>
 
           {/* ===== Footer ===== */}
-          <footer className={styles.footer}>
-            <span>Rovic Aliman © 2026</span>
-            <img src={logo} className={styles.footerLogo} draggable="false" alt="Logo" />
-            <span>
-              Last updated{' '}
-              <a
-                href={commitUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerLink}
-              >
-                {lastUpdated}
-              </a>
-            </span>
-          </footer>
+          <Footer />
         </div>
       </div>
     </>
