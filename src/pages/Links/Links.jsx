@@ -8,6 +8,7 @@ import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { HiOutlineExternalLink, HiOutlineMail, HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 import { IoLocationOutline, IoQrCodeOutline, IoCopyOutline } from "react-icons/io5";
 import { FiSend, FiShare2 } from "react-icons/fi";
+import Footer from "../../components/Footer/Footer";
 
 const SOCIAL_LINKS = [
   { icon: FaLinkedinIn, url: "https://www.linkedin.com/in/rxaliman", label: "LinkedIn" },
@@ -31,7 +32,7 @@ const LINK_CARDS = [
 
 const EMAIL = "rovicxavier150@gmail.com";
 
-const pageUrl = window.location.href;;
+const PAGE_URL = "https://rxaliman.github.io/links";
 
 const LinksPage = () => {
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);
@@ -43,13 +44,13 @@ const LinksPage = () => {
     const shareData = {
       title: "Rovic Xavier Aliman",
       text: "Check out my links!",
-      url: window.location.href,
+      url: PAGE_URL,
     };
     try {
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        await navigator.clipboard.writeText(window.location.href);
+        await navigator.clipboard.writeText(PAGE_URL);
         setSnackbar("Link copied to clipboard!");
         setTimeout(() => setSnackbar(""), 3000);
       }
@@ -60,10 +61,20 @@ const LinksPage = () => {
 
   const handleCopyUrl = async () => {
     try {
-      await navigator.clipboard.writeText(pageUrl);
+      await navigator.clipboard.writeText(PAGE_URL);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
       setSnackbar("Link copied to clipboard!");
+      setTimeout(() => setSnackbar(""), 3000);
+    } catch (err) {
+      /* Clipboard failed */
+    }
+  };
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setSnackbar("Email copied to clipboard!");
       setTimeout(() => setSnackbar(""), 3000);
     } catch (err) {
       /* Clipboard failed */
@@ -141,7 +152,7 @@ const LinksPage = () => {
           <section className={styles.linkCards}>
             {LINK_CARDS.map((card) => {
               const isInternal = card.url.startsWith('/');
-              
+
               if (isInternal) {
                 return (
                   <Link
@@ -188,12 +199,24 @@ const LinksPage = () => {
               If you want to talk, feel free to reach out to me 😊
             </p>
             <span className={styles.emailPill}>{EMAIL}</span>
-            <a href={`mailto:${EMAIL}`} className={styles.sendEmailBtn}>
-              <FiSend className={styles.sendIcon} />
-              Send Email
-            </a>
+            <div className={styles.emailActions}>
+              <a href={`mailto:${EMAIL}`} className={styles.sendEmailBtn}>
+                <FiSend className={styles.sendIcon} />
+                Send Email
+              </a>
+              <button
+                type="button"
+                className={styles.copyEmailBtn}
+                onClick={handleCopyEmail}
+              >
+                <IoCopyOutline className={styles.sendIcon} />
+                Copy Email
+              </button>
+            </div>
           </section>
         </div>
+
+        <Footer />
 
         {/* QR Code Bottom Drawer */}
         <div
@@ -218,7 +241,7 @@ const LinksPage = () => {
           {/* Page URL */}
           <span className={styles.pageUrlLabel}>PAGE URL</span>
           <div className={styles.pageUrlRow}>
-            <span className={styles.pageUrlText}>{pageUrl}</span>
+            <span className={styles.pageUrlText}>{PAGE_URL}</span>
             <button
               className={styles.copyBtn}
               onClick={handleCopyUrl}

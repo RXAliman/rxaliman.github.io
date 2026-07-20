@@ -2,16 +2,47 @@ import iskolinicPic from '../../assets/images/iskolinic.webp';
 import oatsPic from '../../assets/images/oats.webp';
 import scrunchPic from '../../assets/images/scrunch.webp';
 
+import isko1 from '../../assets/images/iskolinic/1.webp';
+import isko2 from '../../assets/images/iskolinic/2.webp';
+import isko3 from '../../assets/images/iskolinic/3.webp';
+import isko4 from '../../assets/images/iskolinic/4.webp';
+import isko5 from '../../assets/images/iskolinic/5.webp';
+import isko6 from '../../assets/images/iskolinic/6.webp';
+import isko7 from '../../assets/images/iskolinic/7.webp';
+import isko8 from '../../assets/images/iskolinic/8.webp';
+import isko9 from '../../assets/images/iskolinic/9.webp';
+import isko10 from '../../assets/images/iskolinic/10.webp';
+import isko11 from '../../assets/images/iskolinic/11.webp';
+import isko12 from '../../assets/images/iskolinic/12.webp';
+import isko13 from '../../assets/images/iskolinic/13.webp';
+import isko14 from '../../assets/images/iskolinic/14.webp';
+
+import oats1 from '../../assets/images/oats/1.webp';
+import oats2 from '../../assets/images/oats/2.webp';
+import oats3 from '../../assets/images/oats/3.webp';
+import oats4 from '../../assets/images/oats/4.webp';
+import oats5 from '../../assets/images/oats/5.webp';
+import oats6 from '../../assets/images/oats/6.webp';
+import oats7 from '../../assets/images/oats/7.webp';
+
+import scrunch1 from '../../assets/images/scrunch/1.webp';
+import scrunch2 from '../../assets/images/scrunch/2.webp';
+import scrunch3 from '../../assets/images/scrunch/3.webp';
+import scrunch4 from '../../assets/images/scrunch/4.webp';
+import scrunch5 from '../../assets/images/scrunch/5.webp';
+
 export const PROJECTS_DATA = {
   iskolinic: {
     id: 'iskolinic',
     name: 'ISKOLINIC - Decentralized School-based Health Records System',
-    tags: ['Flutter', 'Dart', 'SQL'],
+    tags: ['Flutter', 'Dart', 'SQLite'],
     status: 'Deployed',
     statusType: 'deployed',
     statusUrl: 'https://github.com/RXAliman/olopsc-iskolinic',
+    url: '/projects/iskolinic',
     image: iskolinicPic,
-    summary: 'A desktop and mobile application built for Our Lady of Perpetual Succor College (OLOPSC) School Health Services Unit that digitizes and centralizes student health record management. It is a specialized fork for the upcoming ISKOLINIC main repository.',
+    gallery: [isko1, isko2, isko3, isko4, isko5, isko6, isko7, isko8, isko9, isko10, isko11, isko12, isko13, isko14],
+    description: 'A desktop and mobile health records application built for OLOPSC that digitizes student health management using an offline-first CRDT architecture for zero-data-loss synchronization. Recognized as Best Thesis in Computing Studies.',
     overview: 'ISKOLINIC is a comprehensive health records management platform designed specifically for school health services. It digitizes student medical charts, immunization records, visitation logs, and emergency contacts into an offline-first decentralized database.',
     keyFeatures: [
       'Offline-first architecture powered by Conflict-free Replicated Data Types (CRDTs).',
@@ -28,8 +59,10 @@ export const PROJECTS_DATA = {
     status: 'Ongoing',
     statusType: 'ongoing',
     statusUrl: 'https://oats-admin.web.app',
+    url: '/projects/oats',
     image: oatsPic,
-    summary: 'A web-based Alumni Tracking System developed for OLOPSC to track alumni career progression and foster community engagement.',
+    gallery: [oats1, oats2, oats3, oats4, oats5, oats6, oats7],
+    description: 'A web-based Alumni Tracking System for OLOPSC that tracks career progression and alumni engagement, developed as System Analyst leading an Agile Scrum team.',
     overview: 'OATS (OLOPSC Alumni Tracking System) enables institution administrators to track alumni employment outcomes, gather survey metrics, and foster alumni networking. Designed with modern web standards and AI-assisted data analysis.',
     keyFeatures: [
       'Alumni directory and interactive career mapping dashboards.',
@@ -47,8 +80,10 @@ export const PROJECTS_DATA = {
     status: 'Dormant',
     statusType: 'dormant',
     statusUrl: 'https://scrunch.onrender.com',
+    url: '/projects/scrunch',
     image: scrunchPic,
-    summary: 'A full-featured, Instagram-inspired social media platform built and deployed by a three-person team.',
+    gallery: [scrunch1, scrunch2, scrunch3, scrunch4, scrunch5],
+    description: 'A full-featured, Instagram-inspired social media platform with user authentication, and photo feeds, developed as Project Lead and Backend Engineer.',
     overview: 'Scrunch is a full-stack social media web application designed to replicate core photo-sharing platform dynamics. Built from the ground up with custom backend APIs and Firebase cloud integration.',
     keyFeatures: [
       'User authentication with session management and profile personalization.',
@@ -60,3 +95,56 @@ export const PROJECTS_DATA = {
     recognition: 'Led project development as Backend Engineer & Project Lead.'
   }
 };
+
+export const FEATURED_PROJECTS = Object.values(PROJECTS_DATA);
+
+export const OTHER_PROJECTS = [
+  {
+    name: 'Portfolio Website',
+    tags: ['React', 'Tailwind', 'Vite', 'Antigravity IDE'],
+    description: 'My personal website and portfolio hosted on GitHub Pages.',
+    url: 'https://github.com/RXAliman/rxaliman.github.io',
+  },
+  {
+    name: 'Studyante',
+    tags: ['Dart', 'Flutter', 'Hive'],
+    description: "An all-in-one app for student's daily chores. A work-in-progress application to be launched soon.",
+    url: 'https://github.com/RXAliman/studyante',
+  },
+  {
+    name: 'Kurie',
+    tags: ['Dart', 'Flutter', 'Firebase', 'Hive'],
+    description: 'An electricity submetering application designed to streamline electricity usage tracking and billing.',
+    url: 'https://github.com/RXAliman/kurie-app',
+  },
+  {
+    name: 'Cat ID Generator',
+    tags: ['React', 'Vite', 'Cataas API'],
+    description: 'Generates a customized or random cat identification (ID) card in seconds.',
+    url: 'https://rxaliman.github.io/cat-id-generator',
+  },
+  {
+    name: 'Real Rice Purity Test',
+    tags: ['Dart', 'Flutter', 'Firebase'],
+    description: 'A web application hosted on Firebase Hosting. It is a satirical version of ricepuritytest.com',
+    url: 'https://the-real-rice-purity-test.web.app/',
+  },
+  {
+    name: "SENA Homeowner's Information Extractor and Local Database System (SHIELDS)",
+    tags: ['Python', 'Django', 'Web'],
+    description: 'A records management system for a neighborhood association.',
+    url: 'https://github.com/RXAliman/django-shields',
+  },
+  {
+    name: 'Tic-Tac-Toe Game GUI',
+    tags: ['C/C++', 'SFML'],
+    description: 'A C++ Tic-tac-toe game made with Simple and Fast Multimedia Library (SFML) and Code::Blocks.',
+    url: 'https://github.com/RXAliman/sfml-cpp-tic-tac-toe',
+  },
+  {
+    name: 'Logic Prompt',
+    tags: ['C/C++'],
+    description: 'a C++ Program that evaluates any logical symbolic statements.',
+    url: 'https://github.com/RXAliman/logic-prompt',
+  },
+];

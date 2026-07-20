@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../App';
 import styles from './Home.module.css';
 import profilePic from '../../assets/images/cG9naQ==.webp';
-import iskolinicPic from '../../assets/images/iskolinic.webp';
-import oatsPic from '../../assets/images/oats.webp';
-import scrunchPic from '../../assets/images/scrunch.webp';
 import nimbusLogo from '../../assets/images/nimbus-solutions.webp';
 import olopscCbmseLogo from '../../assets/images/olopsc-cbmse.webp';
 import olopscLogo from '../../assets/images/olopsc.webp';
 import tanglawLogo from '../../assets/images/tanglaw.webp';
 import jpcsOcsLogo from '../../assets/images/jpcs-ocs.webp';
 import ocsLogo from '../../assets/images/ocs.webp';
+import { FEATURED_PROJECTS } from '../Projects/projectsData';
 import Footer from '../../components/Footer/Footer';
 import { FaGithub, FaLinkedinIn, FaFacebookF, FaLink } from "react-icons/fa";
 import { HiOutlineExternalLink, HiChevronRight, HiChevronUp, HiCheck, HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
@@ -78,29 +76,7 @@ const SKILLS = [
 
 const CATEGORIES = ['All', 'Main', 'Web', 'Database', 'Mobile', 'General', 'Tools', 'Others'];
 
-const PROJECTS = [
-  {
-    name: 'ISKOLINIC - Decentralized School-based Health Records System',
-    tags: ['Flutter', 'Dart', 'SQLite'],
-    description: 'A desktop and mobile application built for Our Lady of Perpetual Succor College (OLOPSC) School Health Services Unit that digitizes and centralizes student health record management. It features an offline-first architecture powered by Conflict-free Replicated Data Types (CRDTs), ensuring seamless data synchronization and zero data loss across network transitions. Recognized as Best Thesis in Computing Studies.',
-    url: '/projects/iskolinic',
-    image: iskolinicPic,
-  },
-  {
-    name: 'OATS - School Alumni Tracking System',
-    tags: ['Flutter', 'Dart', 'Firebase', 'Gemini API'],
-    description: 'A web-based Alumni Tracking System developed for OLOPSC, where I led the project as System Analyst—gathering requirements, designing the admin interface and wireframes, and overseeing a development team through Agile Scrum sprints to ensure that the system was delivered in close alignment with the school administrators\' specifications and feedback.',
-    url: '/projects/oats',
-    image: oatsPic,
-  },
-  {
-    name: 'Scrunch - Instagram-inspired Social Media Website',
-    tags: ['EJS', 'Node.js', 'Firebase'],
-    description: 'A full-featured, Instagram-inspired social media platform designed and deployed by a three-person team, where I served as both Project Lead and Backend Developer. The platform supports core social features including user authentication, profile management, photo uploads, feeds, likes, comments, and follows.',
-    url: '/projects/scrunch',
-    image: scrunchPic,
-  },
-];
+
 
 // ——— Page Component ———
 export default function HomePage() {
@@ -254,7 +230,7 @@ export default function HomePage() {
             <div className={styles.projectsSection}>
               <h2 className={styles.sectionTitle}>Featured Projects</h2>
               <div className={styles.projectEntries}>
-                {PROJECTS.map((project, index) => (
+                {FEATURED_PROJECTS.map((project, index) => (
                   <div
                     key={index}
                     className={`${styles.projectRow} ${index % 2 !== 0 ? styles.projectRowReverse : ''}`}
@@ -282,7 +258,17 @@ export default function HomePage() {
                     </div>
                     <div className={styles.projectInfo}>
                       <h3 className={styles.projectName}>
-                        {project.name}
+                        {project.url.startsWith('/') ? (
+                          <Link to={project.url} className={styles.projectNameLink}>
+                            <span>{project.name}</span>
+                            <HiOutlineExternalLink className={styles.projectTitleIcon} />
+                          </Link>
+                        ) : (
+                          <a href={project.url} target="_blank" rel="noopener noreferrer" className={styles.projectNameLink}>
+                            <span>{project.name}</span>
+                            <HiOutlineExternalLink className={styles.projectTitleIcon} />
+                          </a>
+                        )}
                       </h3>
                       <div className={styles.projectTags}>
                         {project.tags.map(tag => (

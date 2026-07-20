@@ -132,6 +132,39 @@ const ProjectDetail = () => {
                 </div>
               )}
 
+              {project.gallery && project.gallery.length > 0 && (
+                <div>
+                  <h2 className={styles.sectionHeading}>Project Gallery</h2>
+                  <div className={styles.galleryWrapper}>
+                    {/* Desktop Split Columns (Left-Right Sequential) */}
+                    <div className={styles.galleryGridDesktop}>
+                      <div className={styles.galleryCol}>
+                        {project.gallery.filter((_, idx) => idx % 2 === 0).map((imgSrc, idx) => (
+                          <div key={`left-${idx}`} className={styles.galleryImageCard}>
+                            <img src={imgSrc} alt={`${project.name} screenshot ${idx * 2 + 1}`} className={styles.galleryImage} loading="lazy" draggable="false" />
+                          </div>
+                        ))}
+                      </div>
+                      <div className={styles.galleryCol}>
+                        {project.gallery.filter((_, idx) => idx % 2 !== 0).map((imgSrc, idx) => (
+                          <div key={`right-${idx}`} className={styles.galleryImageCard}>
+                            <img src={imgSrc} alt={`${project.name} screenshot ${idx * 2 + 2}`} className={styles.galleryImage} loading="lazy" draggable="false" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Mobile Single Column (Original Sequence) */}
+                    <div className={styles.galleryGridMobile}>
+                      {project.gallery.map((imgSrc, idx) => (
+                        <div key={`mob-${idx}`} className={styles.galleryImageCard}>
+                          <img src={imgSrc} alt={`${project.name} screenshot ${idx + 1}`} className={styles.galleryImage} loading="lazy" draggable="false" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Bottom Nav Text Button */}
               <div className={styles.bottomNav}>
                 <Link to="/projects" className={styles.textButton}>

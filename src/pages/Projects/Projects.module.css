@@ -161,6 +161,32 @@
   line-height: 1.45;
 }
 
+.projectNameLink {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.projectNameLink:hover {
+  color: #14b8a6;
+  text-decoration: none;
+}
+
+.projectTitleIcon {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.projectNameLink:hover .projectTitleIcon {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
 .projectTags {
   display: flex;
   flex-wrap: wrap;
@@ -293,6 +319,14 @@
 :global(.lightMode) .compactTitle {
   color: #111827 !important;
   border-color: rgba(0, 0, 0, 0.1);
+}
+
+:global(.lightMode) .projectNameLink {
+  color: #111827 !important;
+}
+
+:global(.lightMode) .projectNameLink:hover {
+  color: #0d9488 !important;
 }
 
 :global(.lightMode) .projectDesc,
