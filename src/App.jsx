@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, lazy, Suspense } from 'react';
 
 import HomePage from './pages/Home/Home'
-import LinksPage from './pages/Links/Links'
-import ProjectsPage from './pages/Projects/Projects'
-import ProjectDetail from './pages/Projects/ProjectDetail'
-import NotFoundPage from './pages/NotFound/NotFound'
 import PageWrapper from './components/PageWrapper/PageWrapper'
+
+const LinksPage = lazy(() => import('./pages/Links/Links'));
+const ProjectsPage = lazy(() => import('./pages/Projects/Projects'));
+const ProjectDetail = lazy(() => import('./pages/Projects/ProjectDetail'));
+const NotFoundPage = lazy(() => import('./pages/NotFound/NotFound'));
 
 import useSmoothScroll from './hooks/useSmoothScroll'
 
@@ -41,7 +42,8 @@ const App = () => {
   return (
     <ThemeContext.Provider value={{ isLightMode, setIsLightMode }}>
       <BrowserRouter>
-        <Routes>
+        <Suspense fallback={null}>
+          <Routes>
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={
             <PageWrapper>
@@ -54,7 +56,8 @@ const App = () => {
               </Routes>
             </PageWrapper>
           } />
-        </Routes>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </ThemeContext.Provider>
   );

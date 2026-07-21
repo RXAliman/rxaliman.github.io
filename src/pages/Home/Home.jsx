@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../App';
 import styles from './Home.module.css';
@@ -86,8 +86,6 @@ export default function HomePage() {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
-  const [skillsHeight, setSkillsHeight] = useState('auto');
-  const skillsRef = useRef(null);
 
   // Subtitle cycling animation
   useEffect(() => {
@@ -105,11 +103,7 @@ export default function HomePage() {
     ? SKILLS
     : SKILLS.filter(s => s.category === activeCategory);
 
-  useEffect(() => {
-    if (skillsRef.current) {
-      setSkillsHeight(skillsRef.current.scrollHeight);
-    }
-  }, [filteredSkills]);
+
 
   const toggleExpand = (id) => {
     setExpandedItems(prev => ({ ...prev, [id]: !prev[id] }));
@@ -190,6 +184,8 @@ export default function HomePage() {
                   draggable="false"
                   loading="eager"
                   fetchPriority="high"
+                  width="190"
+                  height="190"
                 />
                 <div className={styles.photoOverlay}>
                   <span className={styles.photoFilename}>rovic aliman.jpg</span>
@@ -214,12 +210,10 @@ export default function HomePage() {
                     </button>
                   ))}
                 </div>
-                <div style={{ height: skillsHeight !== 'auto' ? `${skillsHeight}px` : 'auto', transition: 'height 0.35s ease', overflow: 'hidden' }}>
-                  <div ref={skillsRef} className={styles.skillPills}>
-                    {filteredSkills.map(skill => (
-                      <span key={skill.name} className={styles.skillPill}>{skill.name}</span>
-                    ))}
-                  </div>
+                <div className={styles.skillPills}>
+                  {filteredSkills.map(skill => (
+                    <span key={skill.name} className={styles.skillPill}>{skill.name}</span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -237,7 +231,7 @@ export default function HomePage() {
                   >
                     <div className={styles.projectImageCard}>
                       {project.image ? (
-                        <img src={project.image} alt={project.name} className={styles.projectImage} draggable="false" />
+                        <img src={project.image} alt={project.name} className={styles.projectImage} draggable="false" loading="lazy" />
                       ) : (
                         <div className={styles.projectPlaceholder} />
                       )}
@@ -290,7 +284,7 @@ export default function HomePage() {
             <div className={styles.entriesList}>
               {/* Full-Stack Software Developer Intern */}
               <div className={styles.entryCard}>
-                <img src={nimbusLogo} alt="Nimbus Solutions" className={styles.entryLogo} draggable="false" />
+                <img src={nimbusLogo} alt="Nimbus Solutions" className={styles.entryLogo} draggable="false" loading="lazy" width="40" height="40" />
                 <div className={styles.entryContent}>
                   <div className={styles.entryHeader}>
                     <div className={styles.entryHeaderText}>
@@ -336,7 +330,7 @@ export default function HomePage() {
             <div className={styles.entriesList}>
               {/* Valedictorian */}
               <div className={styles.entryCard}>
-                <img src={olopscCbmseLogo} alt="OLOPSC CBMSE" className={styles.entryLogo} draggable="false" />
+                <img src={olopscCbmseLogo} alt="OLOPSC CBMSE" className={styles.entryLogo} draggable="false" loading="lazy" width="40" height="40" />
                 <div className={styles.entryContent}>
                   <div className={styles.entryHeader}>
                     <div className={styles.entryHeaderText}>
@@ -353,7 +347,7 @@ export default function HomePage() {
 
               {/* Scholarship */}
               <div className={styles.entryCard}>
-                <img src={olopscLogo} alt="OLOPSC" className={styles.entryLogo} draggable="false" />
+                <img src={olopscLogo} alt="OLOPSC" className={styles.entryLogo} draggable="false" loading="lazy" width="40" height="40" />
                 <div className={styles.entryContent}>
                   <div className={styles.entryHeader}>
                     <div className={styles.entryHeaderText}>
@@ -372,7 +366,7 @@ export default function HomePage() {
 
               {/* President - Student Council */}
               <div className={styles.entryCard}>
-                <img src={tanglawLogo} alt="Tanglaw" className={styles.entryLogo} draggable="false" />
+                <img src={tanglawLogo} alt="Tanglaw" className={styles.entryLogo} draggable="false" loading="lazy" width="40" height="40" />
                 <div className={styles.entryContent}>
                   <div className={styles.entryHeader}>
                     <div className={styles.entryHeaderText}>
@@ -413,7 +407,7 @@ export default function HomePage() {
 
               {/* President - JPCS */}
               <div className={styles.entryCard}>
-                <img src={jpcsOcsLogo} alt="JPCS OCS" className={styles.entryLogo} draggable="false" />
+                <img src={jpcsOcsLogo} alt="JPCS OCS" className={styles.entryLogo} draggable="false" loading="lazy" width="40" height="40" />
                 <div className={styles.entryContent}>
                   <div className={styles.entryHeader}>
                     <div className={styles.entryHeaderText}>
@@ -455,7 +449,7 @@ export default function HomePage() {
 
               {/* Vice President - JPCS */}
               <div className={styles.entryCard}>
-                <img src={ocsLogo} alt="OCS" className={styles.entryLogo} draggable="false" />
+                <img src={ocsLogo} alt="OCS" className={styles.entryLogo} draggable="false" loading="lazy" width="40" height="40" />
                 <div className={styles.entryContent}>
                   <div className={styles.entryHeader}>
                     <div className={styles.entryHeaderText}>

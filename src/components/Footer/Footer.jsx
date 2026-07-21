@@ -60,10 +60,15 @@ const Footer = () => {
       }
     };
 
-    fetchCommit();
+    // Defer API call until browser is idle to avoid blocking initial render
+    const idleId = 'requestIdleCallback' in window
+      ? requestIdleCallback(() => fetchCommit())
+      : setTimeout(() => fetchCommit(), 3000);
 
     return () => {
       isMounted = false;
+      if ('cancelIdleCallback' in window) cancelIdleCallback(idleId);
+      else clearTimeout(idleId);
     };
   }, []);
 
