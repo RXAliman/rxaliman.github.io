@@ -189,7 +189,7 @@ const LinksPage = () => {
 
           {/* Get in Touch */}
           <section className={styles.getInTouch}>
-            <div className="flex flex-row items-center gap-3">
+            <div className={styles.getInTouchRow}>
               <div className={styles.getInTouchIconWrapper}>
                 <HiOutlineMail className={styles.getInTouchIcon} />
               </div>

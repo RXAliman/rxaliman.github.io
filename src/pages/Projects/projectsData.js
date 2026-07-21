@@ -47,7 +47,7 @@ export const PROJECTS_DATA = {
     keyFeatures: [
       'Offline-first architecture powered by Conflict-free Replicated Data Types (CRDTs).',
       'Real-time peer-to-peer data synchronization across clinic devices.',
-      'Automated medical inventory tracking and medical history logging.'
+      'Streamlined medical inventory tracking and medical history logging.'
     ],
     techArchitecture: 'Built with Flutter and Dart for cross-platform desktop/mobile support. Local state persistence uses SQLite with a custom CRDT sync engine built to handle intermittent network connectivity seamlessly.',
     recognition: 'Awarded Best Thesis in Computing Studies.'
@@ -66,9 +66,7 @@ export const PROJECTS_DATA = {
     overview: 'OATS (OLOPSC Alumni Tracking System) enables institution administrators to track alumni employment outcomes, gather survey metrics, and foster alumni networking. Designed with modern web standards and AI-assisted data analysis.',
     keyFeatures: [
       'Alumni directory and interactive career mapping dashboards.',
-      'AI-powered resume parsing and career trend insights using Google Gemini API.',
-      'Agile Scrum workflow management with institutional stakeholder feedback integration.',
-      'Event management and announcement system for alumni homecoming events.'
+      'AI-powered data analysis and career trend insights using Google Gemini API.',
     ],
     techArchitecture: 'Developed using Flutter Web with Firebase backend services for authentication, Firestore database, and Cloud Storage.',
     recognition: 'System Analysis & Lead Architecture project for OLOPSC.'
@@ -121,6 +119,12 @@ export const OTHER_PROJECTS = [
     name: 'Cat ID Generator',
     tags: ['React', 'Vite', 'Cataas API'],
     description: 'Generates a customized or random cat identification (ID) card in seconds.',
+    url: 'https://rxaliman.github.io/cat-id-generator',
+  },
+  {
+    name: 'Simple AI Chatbot',
+    tags: ['Python', 'Dialogflow', 'Streamlit'],
+    description: 'Just a test program to use Python\'s Streamlit and DialogFlow to create an AI chatbot',
     url: 'https://rxaliman.github.io/cat-id-generator',
   },
   {

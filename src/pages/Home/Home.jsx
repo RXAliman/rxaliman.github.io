@@ -45,7 +45,6 @@ const SKILLS = [
   // Database
   { name: 'SQL', category: 'Database' },
   { name: 'SQLite', category: 'Database' },
-  { name: 'Hive', category: 'Database' },
   // Mobile
   { name: 'Dart', category: 'Mobile' },
   { name: 'Flutter', category: 'Mobile' },
@@ -69,6 +68,7 @@ const SKILLS = [
   { name: 'Dialogflow', category: 'Others' },
   { name: 'Streamlit', category: 'Others' },
   { name: 'Gemini API', category: 'Others' },
+  { name: 'Hive', category: 'Others' },
   { name: 'Firebase', category: 'Others' },
   { name: 'Render', category: 'Others' },
   { name: 'UptimeRobot', category: 'Others' },
