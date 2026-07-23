@@ -1,0 +1,33 @@
+.themeToggleBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1f2937;
+  border: 1px solid #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.themeToggleBtn:hover {
+  background: #374151;
+  transform: scale(1.05);
+}
+
+:global(.lightMode) .themeToggleBtn {
+  background: #e5e7eb !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+:global(.lightMode) .themeToggleBtn:hover {
+  background: #d1d5db !important;
+}

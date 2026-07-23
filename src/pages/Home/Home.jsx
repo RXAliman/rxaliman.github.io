@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../../App';
 import styles from './Home.module.css';
 import profilePic from '../../assets/images/cG9naQ==.webp';
 import nimbusLogo from '../../assets/images/nimbus-solutions.webp';
@@ -12,7 +11,8 @@ import ocsLogo from '../../assets/images/ocs.webp';
 import { FEATURED_PROJECTS } from '../Projects/projectsData';
 import Footer from '../../components/Footer/Footer';
 import { FaGithub, FaLinkedinIn, FaFacebookF, FaLink } from "react-icons/fa";
-import { HiOutlineExternalLink, HiChevronRight, HiChevronUp, HiCheck, HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
+import { HiOutlineExternalLink, HiChevronRight, HiChevronUp, HiCheck } from "react-icons/hi";
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
 // ——— Constants ———
 
@@ -80,7 +80,6 @@ const CATEGORIES = ['All', 'Main', 'Web', 'Database', 'Mobile', 'General', 'Tool
 
 // ——— Page Component ———
 export default function HomePage() {
-  const { isLightMode, setIsLightMode } = useContext(ThemeContext);
 
   const [activeCategory, setActiveCategory] = useState('All');
   const [currentPhrase, setCurrentPhrase] = useState(0);
@@ -114,13 +113,7 @@ export default function HomePage() {
       <title>Portfolio - Rovic Aliman</title>
       <div className={styles.homePage}>
         {/* Theme Toggle Button */}
-        <button
-          className={styles.themeToggleBtn}
-          aria-label="Toggle theme"
-          onClick={() => setIsLightMode(!isLightMode)}
-        >
-          {isLightMode ? <HiOutlineMoon /> : <HiOutlineSun />}
-        </button>
+        <ThemeToggle />
 
         {/* Social Icons */}
         <nav className={styles.socialIcons} aria-label="Social media links">

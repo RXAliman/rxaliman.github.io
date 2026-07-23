@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../App';
-import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
 import catGif from '../../assets/images/cat.gif'
 import catLightGif from '../../assets/images/cat-light.gif'
@@ -10,20 +10,15 @@ import styles from './NotFound.module.css';
 const year = new Date().getFullYear();
 
 const NotFoundPage = () => {
-  const { isLightMode, setIsLightMode } = useContext(ThemeContext);
+  const { isLightMode } = useContext(ThemeContext);
 
   return (
     <>
       <title>404 - Rovic Aliman</title>
       
       {/* Theme Toggle Button */}
-      <button
-        className={styles.themeToggleBtn}
-        onClick={() => setIsLightMode(!isLightMode)}
-        aria-label="Toggle theme"
-      >
-        {isLightMode ? <HiOutlineMoon /> : <HiOutlineSun />}
-      </button>
+      <ThemeToggle />
+
 
       <div className='h-screen flex flex-col justify-center items-center gap-2 p-3'>
         <img 

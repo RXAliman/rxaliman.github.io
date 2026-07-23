@@ -125,7 +125,7 @@ export const OTHER_PROJECTS = [
     name: 'Simple AI Chatbot',
     tags: ['Python', 'Dialogflow', 'Streamlit'],
     description: 'Just a test program to use Python\'s Streamlit and DialogFlow to create an AI chatbot',
-    url: 'https://rxaliman.github.io/cat-id-generator',
+    url: 'https://rxaliman-chatbot.streamlit.app/',
   },
   {
     name: 'Real Rice Purity Test',

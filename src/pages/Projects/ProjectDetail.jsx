@@ -1,22 +1,18 @@
-import { useContext } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ThemeContext } from '../../App';
 import { PROJECTS_DATA } from './projectsData';
 import styles from './ProjectDetail.module.css';
 import Footer from '../../components/Footer/Footer';
 
 import {
   HiOutlineExternalLink,
-  HiOutlineSun,
-  HiOutlineMoon,
   HiArrowLeft,
   HiCheck
 } from "react-icons/hi";
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = PROJECTS_DATA[id];
-  const { isLightMode, setIsLightMode } = useContext(ThemeContext);
 
   if (!project) {
     return <Navigate to="/404" replace />;
@@ -53,13 +49,7 @@ const ProjectDetail = () => {
       <title>{`${project.name} - Rovic Aliman`}</title>
       <div className={styles.projectDetailPage}>
         {/* Theme Toggle Button */}
-        <button
-          className={styles.themeToggleBtn}
-          aria-label="Toggle theme"
-          onClick={() => setIsLightMode(!isLightMode)}
-        >
-          {isLightMode ? <HiOutlineMoon /> : <HiOutlineSun />}
-        </button>
+        <ThemeToggle />
 
         <div className={styles.content}>
           {/* Back Button */}

@@ -1,29 +1,21 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../../App';
 import styles from './Projects.module.css';
 
 import { FEATURED_PROJECTS, OTHER_PROJECTS } from './projectsData';
 import Footer from '../../components/Footer/Footer';
 
 // Icons
-import { HiOutlineExternalLink, HiOutlineSun, HiOutlineMoon, HiArrowLeft } from "react-icons/hi";
+import { HiOutlineExternalLink, HiArrowLeft } from "react-icons/hi";
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
 export default function ProjectsPage() {
-  const { isLightMode, setIsLightMode } = useContext(ThemeContext);
 
   return (
     <>
       <title>Projects - Rovic Aliman</title>
       <div className={styles.projectsPage}>
         {/* Theme Toggle Button */}
-        <button
-          className={styles.themeToggleBtn}
-          aria-label="Toggle theme"
-          onClick={() => setIsLightMode(!isLightMode)}
-        >
-          {isLightMode ? <HiOutlineMoon /> : <HiOutlineSun />}
-        </button>
+        <ThemeToggle />
 
         <div className={styles.content}>
           {/* Back Button */}

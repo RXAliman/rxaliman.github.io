@@ -20,32 +20,6 @@
   padding-bottom: 20px;
 }
 
-/* ===== Theme Toggle ===== */
-.themeToggleBtn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 50;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-}
-
-.themeToggleBtn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
-
 /* ===== Text Buttons ===== */
 .textButton {
   @apply text-gray-400;
@@ -278,16 +252,6 @@
 /* ===== Light Mode Overrides ===== */
 :global(.lightMode) .projectDetailPage {
   background-color: #f8fafc !important;
-}
-
-:global(.lightMode) .themeToggleBtn {
-  background: rgba(0, 0, 0, 0.05) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  color: #111827 !important;
-}
-
-:global(.lightMode) .themeToggleBtn:hover {
-  background: rgba(0, 0, 0, 0.1) !important;
 }
 
 :global(.lightMode) .textButton {

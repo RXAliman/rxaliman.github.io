@@ -1,14 +1,14 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../../App";
 import styles from "./Links.module.css";
 import profilePic from "../../assets/images/cG9naQ==.webp";
 import qrCode from "../../assets/images/qr-code.png";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
-import { HiOutlineExternalLink, HiOutlineMail, HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
+import { HiOutlineExternalLink, HiOutlineMail } from "react-icons/hi";
 import { IoLocationOutline, IoQrCodeOutline, IoCopyOutline } from "react-icons/io5";
 import { FiSend, FiShare2 } from "react-icons/fi";
 import Footer from "../../components/Footer/Footer";
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
 const SOCIAL_LINKS = [
   { icon: FaLinkedinIn, url: "https://www.linkedin.com/in/rxaliman", label: "LinkedIn" },
@@ -35,7 +35,6 @@ const EMAIL = "rovicxavier150@gmail.com";
 const PAGE_URL = "https://rxaliman.github.io/links";
 
 const LinksPage = () => {
-  const { isLightMode, setIsLightMode } = useContext(ThemeContext);
   const [qrOpen, setQrOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [snackbar, setSnackbar] = useState("");
@@ -88,14 +87,7 @@ const LinksPage = () => {
         <div className={styles.container}>
           {/* Top-Right Actions */}
           <div className={styles.topActions}>
-            <button
-              className={styles.topActionBtn}
-              aria-label="Toggle Theme"
-              title="Toggle Theme"
-              onClick={() => setIsLightMode(!isLightMode)}
-            >
-              {isLightMode ? <HiOutlineMoon /> : <HiOutlineSun />}
-            </button>
+            <ThemeToggle className={styles.topActionBtn} />
             <button
               className={styles.topActionBtn}
               aria-label="QR Code"
