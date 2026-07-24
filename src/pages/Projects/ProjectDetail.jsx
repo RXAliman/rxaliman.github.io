@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { PROJECTS_DATA } from './projectsData';
+import { GALLERY_DATA } from './projectGallery';
 import styles from './ProjectDetail.module.css';
 import Footer from '../../components/Footer/Footer';
 
@@ -15,6 +16,7 @@ import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = PROJECTS_DATA[id];
+  const gallery = GALLERY_DATA[id] || [];
   const [lightboxSrc, setLightboxSrc] = useState(null);
 
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
@@ -145,21 +147,21 @@ const ProjectDetail = () => {
                 </div>
               )}
 
-              {project.gallery && project.gallery.length > 0 && (
+              {gallery.length > 0 && (
                 <div>
                   <h2 className={styles.sectionHeading}>Project Gallery</h2>
                   <div className={styles.galleryWrapper}>
                     {/* Desktop Split Columns (Left-Right Sequential) */}
                     <div className={styles.galleryGridDesktop}>
                       <div className={styles.galleryCol}>
-                        {project.gallery.filter((_, idx) => idx % 2 === 0).map((imgSrc, idx) => (
+                        {gallery.filter((_, idx) => idx % 2 === 0).map((imgSrc, idx) => (
                           <div key={`left-${idx}`} className={styles.galleryImageCard}>
                             <img src={imgSrc} alt={`${project.name} screenshot ${idx * 2 + 1}`} className={styles.galleryImage} loading="lazy" draggable="false" onClick={() => setLightboxSrc(imgSrc)} />
                           </div>
                         ))}
                       </div>
                       <div className={styles.galleryCol}>
-                        {project.gallery.filter((_, idx) => idx % 2 !== 0).map((imgSrc, idx) => (
+                        {gallery.filter((_, idx) => idx % 2 !== 0).map((imgSrc, idx) => (
                           <div key={`right-${idx}`} className={styles.galleryImageCard}>
                             <img src={imgSrc} alt={`${project.name} screenshot ${idx * 2 + 2}`} className={styles.galleryImage} loading="lazy" draggable="false" onClick={() => setLightboxSrc(imgSrc)} />
                           </div>
@@ -168,7 +170,7 @@ const ProjectDetail = () => {
                     </div>
                     {/* Mobile Single Column (Original Sequence) */}
                     <div className={styles.galleryGridMobile}>
-                      {project.gallery.map((imgSrc, idx) => (
+                      {gallery.map((imgSrc, idx) => (
                         <div key={`mob-${idx}`} className={styles.galleryImageCard}>
                           <img src={imgSrc} alt={`${project.name} screenshot ${idx + 1}`} className={styles.galleryImage} loading="lazy" draggable="false" onClick={() => setLightboxSrc(imgSrc)} />
                         </div>

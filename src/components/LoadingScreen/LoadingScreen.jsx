@@ -19,7 +19,6 @@ const LoadingScreen = ({ isLoaded, onFinished }) => {
       // Phase 2: reveal solid logo, hide loader
       setPhase(2);
 
-      // Phase 3: after 2s, float logo up and fade overlay
       exitTimerRef.current = setTimeout(() => {
         setPhase(3);
 
@@ -27,7 +26,7 @@ const LoadingScreen = ({ isLoaded, onFinished }) => {
         fadeTimerRef.current = setTimeout(() => {
           onFinished?.();
         }, 700);
-      }, 2000);
+      }, 1200);
     }
   }, [isLoaded, onFinished]);
 
