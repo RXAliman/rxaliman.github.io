@@ -288,15 +288,6 @@
   color: #4b5563 !important;
 }
 
-:global(.lightMode) .lightboxClose {
-  background: rgba(0, 0, 0, 0.06) !important;
-  color: #111827 !important;
-}
-
-:global(.lightMode) .lightboxClose:hover {
-  background: rgba(0, 0, 0, 0.12) !important;
-}
-
 /* ===== Lightbox Overlay ===== */
 .lightboxOverlay {
   position: fixed;
@@ -312,8 +303,13 @@
 }
 
 @keyframes lightboxFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .lightboxContent {
@@ -327,8 +323,15 @@
 }
 
 @keyframes lightboxScaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .lightboxImage {
