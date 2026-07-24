@@ -19,7 +19,7 @@ const PageWrapper = ({ children }) => {
     let cancelled = false;
 
     const checkReady = () => {
-      const images = Array.from(document.querySelectorAll('img'));
+      const images = Array.from(document.querySelectorAll('img:not([loading="lazy"])'));
       const imagePromises = images
         .filter(img => !img.complete)
         .map(img => new Promise(resolve => {

@@ -224,6 +224,7 @@
   height: auto;
   display: block;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .galleryImageCard:hover .galleryImage {
@@ -285,4 +286,76 @@
 :global(.lightMode) .paragraph,
 :global(.lightMode) .featureItem {
   color: #4b5563 !important;
+}
+
+:global(.lightMode) .lightboxClose {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #111827 !important;
+}
+
+:global(.lightMode) .lightboxClose:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ===== Lightbox Overlay ===== */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: lightboxFadeIn 0.25s ease;
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightboxContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: lightboxScaleIn 0.25s ease;
+}
+
+@keyframes lightboxScaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  display: block;
+}
+
+.lightboxClose {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }

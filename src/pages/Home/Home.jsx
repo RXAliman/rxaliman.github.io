@@ -30,48 +30,50 @@ const SUBTITLE_PHRASES = [
 ];
 
 const SKILLS = [
-  // Main
-  { name: 'HTML5', category: 'Main' },
-  { name: 'CSS3', category: 'Main' },
-  { name: 'JavaScript (ES6+)', category: 'Main' },
-  { name: 'React', category: 'Main' },
-  { name: 'TailwindCSS', category: 'Main' },
-  { name: 'Node.js', category: 'Main' },
-  { name: 'C# ASP.NET Core', category: 'Main' },
-  // Web
-  { name: 'Bootstrap', category: 'Web' },
-  { name: 'EJS', category: 'Web' },
-  { name: 'Express.js', category: 'Web' },
-  // Database
-  { name: 'SQL', category: 'Database' },
-  { name: 'SQLite', category: 'Database' },
-  // Mobile
-  { name: 'Dart', category: 'Mobile' },
-  { name: 'Flutter', category: 'Mobile' },
-  // General
-  { name: 'C/C++', category: 'General' },
-  { name: 'Python', category: 'General' },
-  { name: 'Java', category: 'General' },
-  // Tools
-  { name: 'Visual Studio Code', category: 'Tools' },
-  { name: 'Antigravity IDE', category: 'Tools' },
-  { name: 'Gemini', category: 'Tools' },
-  { name: 'Claude', category: 'Tools' },
-  { name: 'Git', category: 'Tools' },
-  { name: 'GitHub', category: 'Tools' },
-  { name: 'Figma', category: 'Tools' },
-  { name: 'Adobe Photoshop', category: 'Tools' },
-  { name: 'Adobe Illustrator', category: 'Tools' },
-  // Others
-  { name: 'Django', category: 'Others' },
-  { name: 'Flet', category: 'Others' },
-  { name: 'Dialogflow', category: 'Others' },
-  { name: 'Streamlit', category: 'Others' },
-  { name: 'Gemini API', category: 'Others' },
-  { name: 'Hive', category: 'Others' },
-  { name: 'Firebase', category: 'Others' },
-  { name: 'Render', category: 'Others' },
-  { name: 'UptimeRobot', category: 'Others' },
+  { name: 'HTML5', categories: ['Main', 'Web'] },
+  { name: 'CSS3', categories: ['Main', 'Web'] },
+  { name: 'JavaScript (ES6+)', categories: ['Main', 'Web'] },
+  { name: 'React', categories: ['Main', 'Web'] },
+  { name: 'TailwindCSS', categories: ['Main', 'Web'] },
+  { name: 'Node.js', categories: ['Main', 'Web'] },
+  { name: 'C# ASP.NET Core', categories: ['Main', 'Web'] },
+
+  { name: 'Bootstrap', categories: ['Web'] },
+  { name: 'Django', categories: ['Web'] },
+  { name: 'EJS', categories: ['Web'] },
+  { name: 'Express.js', categories: ['Web'] },
+
+  { name: 'SQL', categories: ['Database'] },
+  { name: 'SQLite', categories: ['Database'] },
+
+  { name: 'Dart', categories: ['Mobile', 'General'] },
+  { name: 'Flutter', categories: ['Mobile'] },
+
+  { name: 'C/C++', categories: ['General'] },
+  { name: 'Python', categories: ['General'] },
+  { name: 'Java', categories: ['General'] },
+
+  { name: 'VS Code', categories: ['Tools'] },
+  { name: 'VS Community', categories: ['Tools'] },
+  { name: 'Antigravity IDE', categories: ['Tools'] },
+  { name: 'Gemini', categories: ['Tools'] },
+  { name: 'Claude', categories: ['Tools'] },
+  { name: 'Git', categories: ['Tools'] },
+  { name: 'GitHub', categories: ['Tools'] },
+  { name: 'GitLab CI/CD', categories: ['Tools'] },
+  { name: 'Trello', categories: ['Tools'] },
+  { name: 'Figma', categories: ['Tools'] },
+  { name: 'DBeaver', categories: ['Tools'] },
+  { name: 'Adobe Photoshop', categories: ['Tools'] },
+  { name: 'Adobe Illustrator', categories: ['Tools'] },
+
+  { name: 'Flet', categories: ['Others'] },
+  { name: 'Dialogflow', categories: ['Others'] },
+  { name: 'Streamlit', categories: ['Others'] },
+  { name: 'Gemini API', categories: ['Others'] },
+  { name: 'Firebase', categories: ['Others'] },
+  { name: 'Render', categories: ['Others'] },
+  { name: 'UptimeRobot', categories: ['Others'] },
 ];
 
 const CATEGORIES = ['All', 'Main', 'Web', 'Database', 'Mobile', 'General', 'Tools', 'Others'];
@@ -100,7 +102,7 @@ export default function HomePage() {
 
   const filteredSkills = activeCategory === 'All'
     ? SKILLS
-    : SKILLS.filter(s => s.category === activeCategory);
+    : SKILLS.filter(s => s.categories.includes(activeCategory));
 
 
 

@@ -26,6 +26,7 @@ const useSmoothScroll = ({ speed = 1, smoothness = 0.08 } = {}) => {
     };
 
     const onWheel = (e) => {
+      if (e.ctrlKey) return;
       e.preventDefault();
 
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
