@@ -107,6 +107,7 @@
   align-items: center;
   padding: 5px 14px;
   border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.08);
   width: fit-content;
   overflow: hidden;
@@ -691,6 +692,7 @@
 }
 
 :global(.lightMode) .badge {
+  border-color: rgba(0, 0, 0, 0.12) !important;
   background: rgba(0, 0, 0, 0.05) !important;
 }
 

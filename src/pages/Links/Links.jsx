@@ -7,6 +7,7 @@ import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { HiOutlineExternalLink, HiOutlineMail } from "react-icons/hi";
 import { IoLocationOutline, IoQrCodeOutline, IoCopyOutline } from "react-icons/io5";
 import { FiSend, FiShare2 } from "react-icons/fi";
+import { SiLeetcode } from "react-icons/si";
 import Footer from "../../components/Footer/Footer";
 import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
@@ -14,6 +15,7 @@ const SOCIAL_LINKS = [
   { icon: FaLinkedinIn, url: "https://www.linkedin.com/in/rxaliman", label: "LinkedIn" },
   { icon: FaFacebookF, url: "https://www.facebook.com/rovicxavier", label: "Facebook" },
   { icon: FaInstagram, url: "https://www.instagram.com/rxaliman", label: "Instagram" },
+  { icon: SiLeetcode, url: "https://leetcode.com/u/rxaliman/", label: "LeetCode" },
 ];
 
 const LINK_CARDS = [
@@ -26,6 +28,12 @@ const LINK_CARDS = [
     title: "GitHub Profile",
     description: "Contains my project repositories",
     url: "https://github.com/RXAliman",
+    newTab: true,
+  },
+  {
+    title: "CSSBattle Profile",
+    description: "My player stats in CSSBattle",
+    url: "https://cssbattle.dev/player/tethrarximyr",
     newTab: true,
   },
 ];
