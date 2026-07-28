@@ -71,7 +71,7 @@ const SKILLS = [
   { name: 'Dialogflow', categories: ['Others'] },
   { name: 'Streamlit', categories: ['Others'] },
   { name: 'Gemini API', categories: ['Others'] },
-  { name: 'Firebase', categories: ['Others'] },
+  { name: 'Firebase', categories: ['Main', 'Others'] },
   { name: 'Render', categories: ['Others'] },
   { name: 'UptimeRobot', categories: ['Others'] },
 ];

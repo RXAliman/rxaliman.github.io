@@ -53,11 +53,11 @@ export const PROJECTS_DATA = {
     overview: 'Scrunch is a full-stack social media web application designed to replicate core photo-sharing platform dynamics. Built from the ground up with custom backend APIs and Firebase cloud integration.',
     keyFeatures: [
       'User authentication with session management and profile personalization.',
-      'Real-time photo uploads, interactive feeds, and media optimization.',
-      'Social interaction engine: likes, nested comments, and user follow graph.',
+      'Photo uploads and media optimization.',
+      'Social interaction engine: likes and comments.',
       'Responsive UI rendered with EJS templating engine.'
     ],
-    techArchitecture: 'Node.js/Express backend server integrated with Firebase Firestore and Firebase Real-time Database.',
+    techArchitecture: 'Node.js/Express backend server integrated with Firebase Real-time Database.',
     recognition: 'Led project development as Backend Engineer & Project Lead.'
   }
 };
