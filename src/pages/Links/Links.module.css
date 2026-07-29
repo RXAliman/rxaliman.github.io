@@ -12,6 +12,7 @@
 }
 
 .container {
+  @apply p-4 md:p-6;
   width: 100%;
   max-width: 420px;
   display: flex;
@@ -21,7 +22,6 @@
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 24px;
-  padding: 16px;
   height: min-content;
 }
 
@@ -216,22 +216,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  gap: 12px;
-}
-
-.getInTouchIconWrapper {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #06b6d4, #0891b2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 8px;
 }
 
 .getInTouchIcon {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .getInTouchTitle {
@@ -245,31 +235,74 @@
   @apply text-gray-400;
   font-size: 0.82rem;
   line-height: 1.5;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
 }
 
-.emailActions {
+.emailRow {
   display: flex;
+  align-items: center;
   gap: 10px;
   width: 100%;
+}
+
+.emailPill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  padding: 12px 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.emailPill:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.emailText {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.emailCopyIcon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.emailPill:hover .emailCopyIcon {
+  opacity: 1;
 }
 
 .sendEmailBtn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background: white;
   color: #111;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 10px 16px;
-  border-radius: 8px;
+  font-size: 0.95rem;
   border: none;
   cursor: pointer;
   text-decoration: none;
+  flex-shrink: 0;
   transition: all 0.2s ease;
-  justify-content: center;
-  flex: 1;
 }
 
 .sendEmailBtn:hover {
@@ -278,50 +311,8 @@
   text-decoration: none;
 }
 
-.copyEmailBtn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 10px 16px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  justify-content: center;
-  flex: 1;
-}
-
-.copyEmailBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-1px);
-  color: #fff;
-}
-
 .sendIcon {
   font-size: 0.9rem;
-}
-
-.emailPill {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 12px 18px;
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  transition: border-color 0.25s ease, color 0.25s ease;
-}
-
-.emailPill:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.65);
 }
 
 /* ===== QR Bottom Drawer ===== */
@@ -496,6 +487,7 @@
 
 :global(.lightMode) .profileName,
 :global(.lightMode) .getInTouchTitle,
+:global(.lightMode) .getInTouchIcon,
 :global(.lightMode) .drawerTitle {
   color: #111827 !important;
 }
@@ -567,17 +559,6 @@
 
 :global(.lightMode) .sendEmailBtn:hover {
   background: #374151 !important;
-}
-
-:global(.lightMode) .copyEmailBtn {
-  background: rgba(0, 0, 0, 0.05) !important;
-  color: #374151 !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
-}
-
-:global(.lightMode) .copyEmailBtn:hover {
-  background: rgba(0, 0, 0, 0.1) !important;
-  color: #111827 !important;
 }
 
 :global(.lightMode) .drawer {

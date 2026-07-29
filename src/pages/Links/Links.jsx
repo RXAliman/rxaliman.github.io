@@ -59,7 +59,7 @@ const LinksPage = () => {
       } else {
         await navigator.clipboard.writeText(PAGE_URL);
         setSnackbar("Link copied to clipboard!");
-        setTimeout(() => setSnackbar(""), 3000);
+        setTimeout(() => setSnackbar(""), 2000);
       }
     } catch (err) {
       /* User cancelled */
@@ -190,28 +190,30 @@ const LinksPage = () => {
           {/* Get in Touch */}
           <section className={styles.getInTouch}>
             <div className={styles.getInTouchRow}>
-              <div className={styles.getInTouchIconWrapper}>
-                <HiOutlineMail className={styles.getInTouchIcon} />
-              </div>
+              <HiOutlineMail className={styles.getInTouchIcon} />
               <h2 className={styles.getInTouchTitle}>Get in Touch</h2>
             </div>
             <p className={styles.getInTouchDesc}>
               If you want to talk, feel free to reach out to me 😊
             </p>
-            <span className={styles.emailPill}>{EMAIL}</span>
-            <div className={styles.emailActions}>
-              <a href={`mailto:${EMAIL}`} className={styles.sendEmailBtn}>
-                <FiSend className={styles.sendIcon} />
-                Send Email
-              </a>
+            <div className={styles.emailRow}>
               <button
                 type="button"
-                className={styles.copyEmailBtn}
+                className={styles.emailPill}
                 onClick={handleCopyEmail}
+                title="Copy Email"
               >
-                <IoCopyOutline className={styles.sendIcon} />
-                Copy Email
+                <span className={styles.emailText}>{EMAIL}</span>
+                <IoCopyOutline className={styles.emailCopyIcon} />
               </button>
+              <a
+                href={`mailto:${EMAIL}`}
+                className={styles.sendEmailBtn}
+                title="Send Email"
+                aria-label="Send Email"
+              >
+                <FiSend className={styles.sendIcon} />
+              </a>
             </div>
           </section>
         </div>
