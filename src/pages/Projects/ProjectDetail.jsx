@@ -7,6 +7,7 @@ import Footer from '../../components/Footer/Footer';
 
 import {
   HiOutlineExternalLink,
+  HiOutlineLink,
   HiArrowLeft,
   HiCheck,
   HiX
@@ -177,6 +178,27 @@ const ProjectDetail = () => {
                       ))}
                     </div>
                   </div>
+                </div>
+              )}
+
+              {project.links && project.links.length > 0 && (
+                <div>
+                  <h2 className={styles.sectionHeading}>Links & Resources</h2>
+                  <ul className={styles.linksList}>
+                    {project.links.map((link, idx) => (
+                      <li key={idx} className={styles.linksItem}>
+                        <HiOutlineExternalLink className={styles.linksBullet} />
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.linksAnchor}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
 

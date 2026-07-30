@@ -231,6 +231,42 @@
   transform: scale(1.02);
 }
 
+/* ===== Links & Resources ===== */
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.linksItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.linksBullet {
+  color: #0d9488;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.linksAnchor {
+  @apply text-gray-400;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.linksAnchor:hover {
+  color: #0d9488;
+  text-decoration: underline;
+}
+
 .bottomNav {
   display: flex;
   justify-content: flex-end;
@@ -286,6 +322,14 @@
 :global(.lightMode) .paragraph,
 :global(.lightMode) .featureItem {
   color: #4b5563 !important;
+}
+
+:global(.lightMode) .linksAnchor {
+  color: #4b5563 !important;
+}
+
+:global(.lightMode) .linksAnchor:hover {
+  color: #0d9488 !important;
 }
 
 /* ===== Lightbox Overlay ===== */

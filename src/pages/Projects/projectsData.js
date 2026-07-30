@@ -20,7 +20,11 @@ export const PROJECTS_DATA = {
       'Streamlined medical inventory tracking and medical history logging.'
     ],
     techArchitecture: 'Built with Flutter and Dart for cross-platform desktop/mobile support. Local state persistence uses SQLite with a custom CRDT sync engine built to handle intermittent network connectivity seamlessly.',
-    recognition: 'Awarded Best Thesis in Computing Studies.'
+    recognition: 'Awarded Best Thesis in Computing Studies.',
+    links: [
+      { label: 'GitHub Repository', url: 'https://github.com/RXAliman/olopsc-iskolinic' },
+      { label: 'Book of Abstracts', url: 'https://online.fliphtml5.com/rtmny/SOCORRO/#p=20' },
+    ]
   },
   oats: {
     id: 'oats',
@@ -38,7 +42,11 @@ export const PROJECTS_DATA = {
       'AI-powered data analysis and career trend insights using Google Gemini API.',
     ],
     techArchitecture: 'Developed using Flutter Web with Firebase backend services for authentication, Firestore database, and Cloud Storage.',
-    recognition: 'System Analysis & Lead Architecture project for OLOPSC.'
+    recognition: 'System Analysis & Lead Architecture project for OLOPSC.',
+    links: [
+      { label: 'Live Admin Website', url: 'https://oats-admin.web.app' },
+      { label: 'User Manual', url: 'https://canva.link/mt22fwxhyifzu0o' },
+    ]
   },
   scrunch: {
     id: 'scrunch',
@@ -58,7 +66,10 @@ export const PROJECTS_DATA = {
       'Responsive UI rendered with EJS templating engine.'
     ],
     techArchitecture: 'Node.js/Express backend server integrated with Firebase Real-time Database.',
-    recognition: 'Led project development as Backend Engineer & Project Lead.'
+    recognition: 'Led project development as Backend Engineer & Project Lead.',
+    links: [
+      { label: 'Live Site', url: 'https://scrunch.onrender.com' },
+    ]
   }
 };
 
