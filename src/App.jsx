@@ -10,6 +10,7 @@ const ProjectDetail = lazy(() => import('./pages/Projects/ProjectDetail'));
 const NotFoundPage = lazy(() => import('./pages/NotFound/NotFound'));
 
 import useSmoothScroll from './hooks/useSmoothScroll'
+import useRemoveTrackers from './hooks/useRemoveTrackers'
 
 import './App.css'
 
@@ -17,6 +18,7 @@ export const ThemeContext = createContext();
 
 const App = () => {
   useSmoothScroll();
+  useRemoveTrackers();
 
   const [isLightMode, setIsLightMode] = useState(() => {
     try {
