@@ -30,20 +30,23 @@ const SUBTITLE_PHRASES = [
 ];
 
 const SKILLS = [
-  { name: 'HTML5', categories: ['Main', 'Web'] },
-  { name: 'CSS3', categories: ['Main', 'Web'] },
-  { name: 'JavaScript (ES6+)', categories: ['Main', 'Web'] },
-  { name: 'React', categories: ['Main', 'Web'] },
-  { name: 'TailwindCSS', categories: ['Main', 'Web'] },
-  { name: 'Node.js', categories: ['Main', 'Web'] },
-  { name: 'C# ASP.NET Core', categories: ['Main', 'Web'] },
+  { name: 'HTML5', categories: ['Main', 'Front-end'] },
+  { name: 'CSS3', categories: ['Main', 'Front-end'] },
+  { name: 'JavaScript (ES6+)', categories: ['Main', 'Front-end'] },
+  { name: 'React', categories: ['Main', 'Front-end'] },
+  { name: 'TailwindCSS', categories: ['Main', 'Front-end'] },
+  { name: 'Node.js', categories: ['Main', 'Back-end'] },
+  { name: 'C# ASP.NET Core', categories: ['Main', 'Back-end'] },
 
-  { name: 'Bootstrap', categories: ['Web'] },
-  { name: 'Django', categories: ['Web'] },
-  { name: 'EJS', categories: ['Web'] },
-  { name: 'Express.js', categories: ['Web'] },
+  { name: 'Astro', categories: ['Front-end'] },
+  { name: 'Bootstrap', categories: ['Front-end'] },
+  { name: 'Next.js', categories: ['Front-end'] },
+  { name: 'Django', categories: ['Back-end'] },
+  { name: 'EJS', categories: ['Front-end'] },
+  { name: 'Express.js', categories: ['Back-end'] },
+  { name: 'PHP', categories: ['Back-end'] },
 
-  { name: 'SQL', categories: ['Database'] },
+  { name: 'MySQL', categories: ['Database'] },
   { name: 'SQLite', categories: ['Database'] },
 
   { name: 'Dart', categories: ['Mobile', 'General'] },
@@ -71,12 +74,13 @@ const SKILLS = [
   { name: 'Dialogflow', categories: ['Others'] },
   { name: 'Streamlit', categories: ['Others'] },
   { name: 'Gemini API', categories: ['Others'] },
-  { name: 'Firebase', categories: ['Main', 'Others'] },
+  { name: 'Firebase', categories: ['Main', 'Database', 'Others'] },
   { name: 'Render', categories: ['Others'] },
+  { name: 'Netlify', categories: ['Others'] },
   { name: 'UptimeRobot', categories: ['Others'] },
 ];
 
-const CATEGORIES = ['All', 'Main', 'Web', 'Database', 'Mobile', 'General', 'Tools', 'Others'];
+const CATEGORIES = ['All', 'Main', 'Front-end', 'Back-end', 'Database', 'Mobile', 'General', 'Tools', 'Others'];
 
 
 
@@ -388,7 +392,7 @@ export default function HomePage() {
                           <ul className={styles.detailsList}>
                             <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Organized multiple events such as the the general assemblies, leadership training, and the 47th founding anniversary celebrations</span></li>
                             <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Led the rebranding of the Student Council</span></li>
-                            <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Proposed some adjustments with the Student Council such as setting Saturday classes as "Civilian Day", letting students wear appropriate civilian attire instead of daily uniforms within the college campus</span></li>
+                            <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Streamlined information/announcement dissemination through designing and improving publication materials, social media channels, and organizational assignments</span></li>
                           </ul>
                         </div>
                       </div>
@@ -430,7 +434,7 @@ export default function HomePage() {
                           <ul className={styles.detailsList}>
                             <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Organized multiple events such as breakout sessions every student assemblies and e-sport events</span></li>
                             <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Led the rebranding of OLOPSC Computer Society</span></li>
-                            <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Streamlined some workflows and processes within the organization</span></li>
+                            <li className={styles.detailsListItem}><HiCheck className={styles.detailsCheck} /> <span>Streamlined creation of proposals and information dissemination within the organization</span></li>
                           </ul>
                         </div>
                       </div>
@@ -460,7 +464,6 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* ===== Footer ===== */}
           <Footer />
         </div>
       </div>

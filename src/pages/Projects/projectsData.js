@@ -78,15 +78,15 @@ export const FEATURED_PROJECTS = Object.values(PROJECTS_DATA);
 export const OTHER_PROJECTS = [
   {
     name: 'Portfolio Website',
-    tags: ['React', 'Tailwind', 'Vite', 'Antigravity IDE'],
+    tags: ['React', 'TailwindCSS', 'Vite', 'Antigravity IDE'],
     description: 'My personal website and portfolio hosted on GitHub Pages.',
     url: 'https://github.com/RXAliman/rxaliman.github.io',
   },
   {
-    name: 'Studyante',
-    tags: ['Dart', 'Flutter', 'Hive'],
-    description: "An all-in-one app for student's daily chores. A work-in-progress application to be launched soon.",
-    url: 'https://github.com/RXAliman/studyante',
+    name: "SENA Homeowner's Information Extractor and Local Database System (SHIELDS)",
+    tags: ['Python', 'Django', 'Web'],
+    description: 'A records management system for a neighborhood association.',
+    url: 'https://github.com/RXAliman/django-shields',
   },
   {
     name: 'Kurie',
@@ -101,10 +101,10 @@ export const OTHER_PROJECTS = [
     url: 'https://rxaliman.github.io/cat-id-generator',
   },
   {
-    name: 'Simple AI Chatbot',
-    tags: ['Python', 'Dialogflow', 'Streamlit'],
-    description: 'Just a test program to use Python\'s Streamlit and DialogFlow to create an AI chatbot',
-    url: 'https://rxaliman-chatbot.streamlit.app/',
+    name: 'Studyante',
+    tags: ['Dart', 'Flutter', 'Hive'],
+    description: "An all-in-one app for student's daily chores. A work-in-progress application to be launched soon.",
+    url: 'https://github.com/RXAliman/studyante',
   },
   {
     name: 'Real Rice Purity Test',
@@ -113,16 +113,22 @@ export const OTHER_PROJECTS = [
     url: 'https://the-real-rice-purity-test.web.app/',
   },
   {
-    name: "SENA Homeowner's Information Extractor and Local Database System (SHIELDS)",
-    tags: ['Python', 'Django', 'Web'],
-    description: 'A records management system for a neighborhood association.',
-    url: 'https://github.com/RXAliman/django-shields',
-  },
-  {
     name: 'Tic-Tac-Toe Game GUI',
     tags: ['C/C++', 'SFML'],
     description: 'A C++ Tic-tac-toe game made with Simple and Fast Multimedia Library (SFML) and Code::Blocks.',
     url: 'https://github.com/RXAliman/sfml-cpp-tic-tac-toe',
+  },
+  {
+    name: 'Astro Tutorial Website',
+    tags: ['Astro', 'Netlify'],
+    description: 'Just a website I made to follow along the \'Building a blog tutorial\'. Deployed through Netlify.',
+    url: 'https://rxaliman-astro-tutorial.netlify.app/',
+  },
+  {
+    name: 'Simple AI Chatbot',
+    tags: ['Python', 'Dialogflow', 'Streamlit'],
+    description: 'Just a test program to use Python\'s Streamlit and DialogFlow to create an AI chatbot',
+    url: 'https://rxaliman-chatbot.streamlit.app/',
   },
   {
     name: 'Logic Prompt',
