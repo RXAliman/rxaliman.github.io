@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import profilePic from '../../assets/images/cG9naQ==.webp';
@@ -11,7 +11,7 @@ import ocsLogo from '../../assets/images/ocs.webp';
 import { FEATURED_PROJECTS } from '../Projects/projectsData';
 import Footer from '../../components/Footer/Footer';
 import { FaGithub, FaLinkedinIn, FaFacebookF, FaLink } from "react-icons/fa";
-import { HiOutlineExternalLink, HiChevronRight, HiChevronUp, HiCheck } from "react-icons/hi";
+import { HiOutlineExternalLink, HiChevronLeft, HiChevronRight, HiChevronUp, HiCheck } from "react-icons/hi";
 import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
 // ——— Constants ———
@@ -91,6 +91,35 @@ export default function HomePage() {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
+  const tabsRef = useRef(null);
+  const [fadeLeft, setFadeLeft] = useState(false);
+  const [fadeRight, setFadeRight] = useState(false);
+
+  const updateFade = useCallback(() => {
+    const el = tabsRef.current;
+    if (!el) return;
+    setFadeLeft(el.scrollLeft > 4);
+    setFadeRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = tabsRef.current;
+    if (!el) return;
+    updateFade();
+    el.addEventListener('scroll', updateFade, { passive: true });
+    window.addEventListener('resize', updateFade);
+    return () => {
+      el.removeEventListener('scroll', updateFade);
+      window.removeEventListener('resize', updateFade);
+    };
+  }, [updateFade]);
+
+  const scrollTabs = useCallback((direction) => {
+    const el = tabsRef.current;
+    if (!el) return;
+    const scrollAmount = el.clientWidth * 0.6;
+    el.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+  }, []);
 
   // Subtitle cycling animation
   useEffect(() => {
@@ -198,16 +227,28 @@ export default function HomePage() {
             <div>
               <h2 className={styles.sectionTitle}>Skills</h2>
               <div className={styles.skillsContainer}>
-                <div className={styles.skillTabs}>
-                  {CATEGORIES.map(cat => (
-                    <button
-                      key={cat}
-                      className={`${styles.skillTab} ${activeCategory === cat ? styles.skillTabActive : ''}`}
-                      onClick={() => setActiveCategory(cat)}
-                    >
-                      {cat}{cat === 'All' ? ` (${SKILLS.length})` : ''}
+                <div className={`${styles.skillTabsWrapper} ${fadeLeft ? styles.fadeLeft : ''} ${fadeRight ? styles.fadeRight : ''}`}>
+                  {fadeLeft && (
+                    <button className={`${styles.scrollArrow} ${styles.scrollArrowLeft}`} onClick={() => scrollTabs('left')} aria-label="Scroll categories left">
+                      <HiChevronLeft />
                     </button>
-                  ))}
+                  )}
+                  <div className={styles.skillTabs} ref={tabsRef}>
+                    {CATEGORIES.map(cat => (
+                      <button
+                        key={cat}
+                        className={`${styles.skillTab} ${activeCategory === cat ? styles.skillTabActive : ''}`}
+                        onClick={() => setActiveCategory(cat)}
+                      >
+                        {cat}{cat === 'All' ? ` (${SKILLS.length})` : ''}
+                      </button>
+                    ))}
+                  </div>
+                  {fadeRight && (
+                    <button className={`${styles.scrollArrow} ${styles.scrollArrowRight}`} onClick={() => scrollTabs('right')} aria-label="Scroll categories right">
+                      <HiChevronRight />
+                    </button>
+                  )}
                 </div>
                 <div className={styles.skillPills}>
                   {filteredSkills.map(skill => (

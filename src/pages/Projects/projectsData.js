@@ -83,10 +83,10 @@ export const OTHER_PROJECTS = [
     url: 'https://github.com/RXAliman/rxaliman.github.io',
   },
   {
-    name: "SENA Homeowner's Information Extractor and Local Database System (SHIELDS)",
+    name: "SHIELDS",
     tags: ['Python', 'Django', 'Web'],
     description: 'A records management system for a neighborhood association.',
-    url: 'https://github.com/RXAliman/django-shields',
+    url: 'https://canva.link/fbmw8pmhtlzau47',
   },
   {
     name: 'Kurie',
