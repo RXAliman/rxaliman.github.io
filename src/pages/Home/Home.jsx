@@ -13,6 +13,8 @@ import Footer from '../../components/Footer/Footer';
 import { FaGithub, FaLinkedinIn, FaFacebookF, FaLink } from "react-icons/fa";
 import { HiOutlineExternalLink, HiChevronLeft, HiChevronRight, HiChevronUp, HiCheck } from "react-icons/hi";
 import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
+import Lightbox from '../../components/Lightbox/Lightbox';
+import { CERT_DATA } from '../Cert/certData';
 
 // ——— Constants ———
 
@@ -137,6 +139,9 @@ export default function HomePage() {
     ? SKILLS
     : SKILLS.filter(s => s.categories.includes(activeCategory));
 
+  // ——— Certifications lightbox state ———
+  const [certLightbox, setCertLightbox] = useState(null);
+  const closeCertLightbox = useCallback(() => setCertLightbox(null), []);
 
 
   const toggleExpand = (id) => {
@@ -505,9 +510,39 @@ export default function HomePage() {
             </div>
           </section>
 
+          {/* ===== Certifications ===== */}
+          <section className={styles.sectionContainer}>
+            <h2 className={styles.sectionTitle}>Featured Certifications</h2>
+            <div className={styles.certGrid}>
+              {CERT_DATA.filter(cert => cert.featured).map((cert) => (
+                <div
+                  key={cert.id}
+                  className={styles.certCard}
+                  onClick={() => setCertLightbox(cert.image)}
+                >
+                  <div className={styles.certImageCard}>
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className={styles.certImage}
+                      draggable="false"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className={styles.certInfo}>
+                    <h3 className={styles.certTitle}>{cert.title}</h3>
+                    <span className={styles.certCategory}>{cert.category}</span>
+                    <p className={styles.certIssuer}>{cert.issuer}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Link to="/certifications" className={styles.viewMoreCerts}>view other certifications <HiOutlineExternalLink /></Link>
+          </section>
           <Footer />
         </div>
       </div>
+      <Lightbox src={certLightbox} alt="Enlarged certification" onClose={closeCertLightbox} />
     </>
   );
 };

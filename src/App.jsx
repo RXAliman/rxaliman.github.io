@@ -7,6 +7,7 @@ import PageWrapper from './components/PageWrapper/PageWrapper'
 const LinksPage = lazy(() => import('./pages/Links/Links'));
 const ProjectsPage = lazy(() => import('./pages/Projects/Projects'));
 const ProjectDetail = lazy(() => import('./pages/Projects/ProjectDetail'));
+const CertPage = lazy(() => import('./pages/Cert/Cert'));
 const NotFoundPage = lazy(() => import('./pages/NotFound/NotFound'));
 
 import useSmoothScroll from './hooks/useSmoothScroll'
@@ -54,6 +55,7 @@ const App = () => {
                 <Route path="/links" element={<LinksPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/projects/:id" element={<ProjectDetail />} />
+                <Route path="/certifications" element={<CertPage />} />
                 <Route path="*" element={<Navigate to="/404" replace />} />
               </Routes>
             </PageWrapper>

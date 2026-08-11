@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { PROJECTS_DATA } from './projectsData';
 import { GALLERY_DATA } from './projectGallery';
@@ -7,12 +7,11 @@ import Footer from '../../components/Footer/Footer';
 
 import {
   HiOutlineExternalLink,
-  HiOutlineLink,
   HiArrowLeft,
-  HiCheck,
-  HiX
+  HiCheck
 } from "react-icons/hi";
 import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
+import Lightbox from '../../components/Lightbox/Lightbox';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -21,24 +20,6 @@ const ProjectDetail = () => {
   const [lightboxSrc, setLightboxSrc] = useState(null);
 
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
-
-  // Lock body scroll while lightbox is open
-  useEffect(() => {
-    if (lightboxSrc) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; };
-  }, [lightboxSrc]);
-
-  // Close on Escape key
-  useEffect(() => {
-    if (!lightboxSrc) return;
-    const onKey = (e) => { if (e.key === 'Escape') closeLightbox(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [lightboxSrc, closeLightbox]);
 
   if (!project) {
     return <Navigate to="/404" replace />;
@@ -216,17 +197,7 @@ const ProjectDetail = () => {
         </div>
       </div>
 
-      {/* Lightbox Overlay */}
-      {lightboxSrc && (
-        <div className={styles.lightboxOverlay} onClick={closeLightbox}>
-          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <img src={lightboxSrc} alt="Enlarged screenshot" className={styles.lightboxImage} draggable="false" />
-            <button className={styles.lightboxClose} onClick={closeLightbox}>
-              <HiX /> Close
-            </button>
-          </div>
-        </div>
-      )}
+      <Lightbox src={lightboxSrc} alt="Enlarged screenshot" onClose={closeLightbox} />
     </>
   );
 };

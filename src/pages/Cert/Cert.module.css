@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+/* ===== Layout ===== */
+.certPage {
+  @apply bg-gray-950 gap-[14px] md:gap-[20px];
+  min-height: 100vh;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+  padding-bottom: 20px;
+}
+
+/* ===== Text Buttons ===== */
+.textButton {
+  @apply text-gray-400;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  transition: color 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+
+.textButton:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== Sections ===== */
+.sectionContainer {
+  @apply p-4 md:p-5 lg:p-[28px];
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  @apply text-white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+/* ===== Certifications Grid ===== */
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.certCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.certCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(20, 184, 166, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.certImageCard {
+  width: 100%;
+  aspect-ratio: 4 / 2;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.certCard:hover .certImage {
+  transform: scale(1.03);
+}
+
+.certInfo {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.certTitle {
+  @apply text-white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.certCategory {
+  display: inline-block;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #0d9488;
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+}
+
+.certIssuer {
+  @apply text-gray-400;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== Light Mode Overrides ===== */
+:global(.lightMode) .certPage {
+  background-color: #f8fafc !important;
+}
+
+:global(.lightMode) .textButton {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+:global(.lightMode) .textButton:hover {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+:global(.lightMode) .sectionContainer {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+:global(.lightMode) .sectionTitle,
+:global(.lightMode) .certTitle {
+  color: #111827 !important;
+}
+
+:global(.lightMode) .certIssuer {
+  color: #4b5563 !important;
+}
+
+:global(.lightMode) .certCard {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+:global(.lightMode) .certCard:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(13, 148, 136, 0.4) !important;
+}
+
+:global(.lightMode) .certImageCard {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .certGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .certInfo {
+    padding: 10px;
+  }
+
+  .certTitle {
+    font-size: 0.82rem;
+  }
+
+  .certCategory {
+    font-size: 0.62rem;
+  }
+
+  .certIssuer {
+    font-size: 0.72rem;
+  }
+}
