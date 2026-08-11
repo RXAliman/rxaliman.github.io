@@ -57,7 +57,6 @@
   border-radius: 16px;
   interpolate-size: allow-keywords;
   height: max-content;
-  transition: all 0.35s ease;
 }
 
 /* ===== Hero Section ===== */
@@ -236,12 +235,12 @@
 
 .skillTabsWrapper::before {
   left: 0;
-  background: linear-gradient(to right, #030712, transparent);
+  background: linear-gradient(to right, #080c17, transparent);
 }
 
 .skillTabsWrapper::after {
   right: 0;
-  background: linear-gradient(to left, #030712, transparent);
+  background: linear-gradient(to left, #080c17, transparent);
 }
 
 .skillTabsWrapper.fadeLeft::before {
@@ -783,11 +782,11 @@
 }
 
 :global(.lightMode) .skillTabsWrapper::before {
-  background: linear-gradient(to right, #f8fafc, transparent) !important;
+  background: linear-gradient(to right, #f0f2f4, transparent) !important;
 }
 
 :global(.lightMode) .skillTabsWrapper::after {
-  background: linear-gradient(to left, #f8fafc, transparent) !important;
+  background: linear-gradient(to left, #f0f2f4, transparent) !important;
 }
 
 :global(.lightMode) .scrollArrow {

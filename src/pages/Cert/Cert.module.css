@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background-color 0.5s ease;
 }
 
 .content {
@@ -56,7 +55,7 @@
 /* ===== Certifications Grid ===== */
 .certGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
 }
 

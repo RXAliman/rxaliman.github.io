@@ -9,6 +9,40 @@ import Lightbox from '../../components/Lightbox/Lightbox';
 import { HiArrowLeft } from "react-icons/hi";
 import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
+// ——— CertSection Helper Component (Local) ———
+const CertSection = ({ title, certs, onSelectImage }) => {
+  if (!certs || certs.length === 0) return null;
+
+  return (
+    <section className={styles.sectionContainer}>
+      <h2 className={styles.sectionTitle}>{title}</h2>
+      <div className={styles.certGrid}>
+        {certs.map((cert) => (
+          <div
+            key={cert.id}
+            className={styles.certCard}
+            onClick={() => onSelectImage(cert.image)}
+          >
+            <div className={styles.certImageCard}>
+              <img
+                src={cert.image}
+                alt={cert.title}
+                className={styles.certImage}
+                draggable="false"
+                loading="lazy"
+              />
+            </div>
+            <div className={styles.certInfo}>
+              <h3 className={styles.certTitle}>{cert.title}</h3>
+              <p className={styles.certIssuer}>{cert.issuer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 export default function CertPage() {
   const [lightboxSrc, setLightboxSrc] = useState(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
@@ -30,98 +64,10 @@ export default function CertPage() {
             <HiArrowLeft /> back to portfolio
           </Link>
 
-          {/* Academics */}
-          {academicCerts.length > 0 && (
-            <section className={styles.sectionContainer}>
-              <h2 className={styles.sectionTitle}>Academics</h2>
-              <div className={styles.certGrid}>
-                {academicCerts.map((cert) => (
-                  <div
-                    key={cert.id}
-                    className={styles.certCard}
-                    onClick={() => setLightboxSrc(cert.image)}
-                  >
-                    <div className={styles.certImageCard}>
-                      <img
-                        src={cert.image}
-                        alt={cert.title}
-                        className={styles.certImage}
-                        draggable="false"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className={styles.certInfo}>
-                      <h3 className={styles.certTitle}>{cert.title}</h3>
-                      <span className={styles.certCategory}>{cert.category}</span>
-                      <p className={styles.certIssuer}>{cert.issuer}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Work */}
-          {workCerts.length > 0 && (
-            <section className={styles.sectionContainer}>
-              <h2 className={styles.sectionTitle}>Work</h2>
-              <div className={styles.certGrid}>
-                {workCerts.map((cert) => (
-                  <div
-                    key={cert.id}
-                    className={styles.certCard}
-                    onClick={() => setLightboxSrc(cert.image)}
-                  >
-                    <div className={styles.certImageCard}>
-                      <img
-                        src={cert.image}
-                        alt={cert.title}
-                        className={styles.certImage}
-                        draggable="false"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className={styles.certInfo}>
-                      <h3 className={styles.certTitle}>{cert.title}</h3>
-                      <span className={styles.certCategory}>{cert.category}</span>
-                      <p className={styles.certIssuer}>{cert.issuer}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Technology & Innovation */}
-          {techCerts.length > 0 && (
-            <section className={styles.sectionContainer}>
-              <h2 className={styles.sectionTitle}>Technology & Innovation</h2>
-              <div className={styles.certGrid}>
-                {techCerts.map((cert) => (
-                  <div
-                    key={cert.id}
-                    className={styles.certCard}
-                    onClick={() => setLightboxSrc(cert.image)}
-                  >
-                    <div className={styles.certImageCard}>
-                      <img
-                        src={cert.image}
-                        alt={cert.title}
-                        className={styles.certImage}
-                        draggable="false"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className={styles.certInfo}>
-                      <h3 className={styles.certTitle}>{cert.title}</h3>
-                      <span className={styles.certCategory}>{cert.category}</span>
-                      <p className={styles.certIssuer}>{cert.issuer}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
+          {/* Certification Sections */}
+          <CertSection title="Academics" certs={academicCerts} onSelectImage={setLightboxSrc} />
+          <CertSection title="Work" certs={workCerts} onSelectImage={setLightboxSrc} />
+          <CertSection title="Technology & Innovation" certs={techCerts} onSelectImage={setLightboxSrc} />
 
           {/* ===== Footer ===== */}
           <Footer />

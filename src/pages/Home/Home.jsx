@@ -530,8 +530,8 @@ export default function HomePage() {
                     />
                   </div>
                   <div className={styles.certInfo}>
-                    <h3 className={styles.certTitle}>{cert.title}</h3>
                     <span className={styles.certCategory}>{cert.category}</span>
+                    <h3 className={styles.certTitle}>{cert.title}</h3>
                     <p className={styles.certIssuer}>{cert.issuer}</p>
                   </div>
                 </div>

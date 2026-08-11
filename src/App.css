@@ -19,7 +19,6 @@ body {
   @apply scroll-smooth bg-gray-950;
   margin: 0;
   font-family: "Google Sans";
-  transition: background-color 0.5s ease;
 }
 
 body.lightMode {
