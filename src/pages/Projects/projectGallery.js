@@ -12,6 +12,14 @@ import isko11 from '../../assets/images/iskolinic/11.webp';
 import isko12 from '../../assets/images/iskolinic/12.webp';
 import isko13 from '../../assets/images/iskolinic/13.webp';
 import isko14 from '../../assets/images/iskolinic/14.webp';
+import isko15 from '../../assets/images/iskolinic/15.webp';
+import isko16 from '../../assets/images/iskolinic/16.webp';
+import isko17 from '../../assets/images/iskolinic/17.webp';
+import isko18 from '../../assets/images/iskolinic/18.webp';
+import isko19 from '../../assets/images/iskolinic/19.webp';
+import isko20 from '../../assets/images/iskolinic/20.webp';
+import isko21 from '../../assets/images/iskolinic/21.webp';
+import isko22 from '../../assets/images/iskolinic/22.webp';
 
 import oats1 from '../../assets/images/oats/1.webp';
 import oats2 from '../../assets/images/oats/2.webp';
@@ -33,7 +41,11 @@ import scrunch5 from '../../assets/images/scrunch/5.webp';
  * in the lazy-loaded ProjectDetail chunk — not the main bundle.
  */
 export const GALLERY_DATA = {
-  iskolinic: [isko1, isko2, isko3, isko4, isko5, isko6, isko7, isko8, isko9, isko10, isko11, isko12, isko13, isko14],
+  iskolinic: [
+    isko1, isko19, isko20, isko21, isko22, isko2, isko15,
+    isko16, isko17, isko18, isko3, isko4, isko5, isko6, isko7,
+    isko8, isko9, isko10, isko11, isko12, isko13, isko14,
+  ],
   oats: [oats1, oats2, oats3, oats4, oats5, oats6, oats7],
   scrunch: [scrunch1, scrunch2, scrunch3, scrunch4, scrunch5],
 };
